@@ -5,7 +5,9 @@ const timeline = document.querySelector(".timeline");
 const chartBlocks = [...document.querySelectorAll(".chart-animate")];
 const sparkleLayer = document.querySelector(".sparkle-layer");
 const root = document.documentElement;
-const canAnimateCursor = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+const canAnimateCursor = !prefersReducedMotion && !isCoarsePointer;
 
 const promotePrefixHeadlines = () => {
   const candidates = [
@@ -59,11 +61,11 @@ const promotePrefixHeadlines = () => {
 promotePrefixHeadlines();
 
 const createSparkles = () => {
-  if (!sparkleLayer) {
+  if (!sparkleLayer || prefersReducedMotion) {
     return;
   }
 
-  const totalSparkles = 36;
+  const totalSparkles = window.innerWidth < 700 ? 10 : 22;
 
   for (let i = 0; i < totalSparkles; i += 1) {
     const spark = document.createElement("span");
@@ -129,6 +131,8 @@ if (canAnimateCursor) {
   });
 
   startGradient();
+} else {
+  root.style.setProperty("--cursor-strength", "0");
 }
 
 const setActiveNav = (id) => {
