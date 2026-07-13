@@ -1,0 +1,431 @@
+SPRITE "LEM 'ON SPARK!" - SLIDE-BY-SLIDE CONTENT BLUEPRINT
+
+Target Platform: Single-page scrolling presentation (HTML/Tailwind CSS).
+Design Instruction for AI: Treat each H2 section as a distinct, full-screen slide (min-h-screen, snap scrolling). Ensure text matches the provided copy exactly.
+
+SLIDE 1: TITLE SLIDE
+
+Micro-Instructions: Center-aligned, bold, energetic design. Sprite Green gradient background.
+Copy to Insert:
+
+SPRITE "LEM 'ON SPARK!" CAMPAIGN
+
+SPRITE VIETNAM 2026
+
+EXECUTIVE STRATEGIC SUMMARY
+
+VIETNAM MARKET
+
+"ĐÁNH THỨC GIÁC QUAN, THĂNG HOA HƯƠNG VỊ"
+
+SLIDE 2: THỊ TRƯỜNG & ĐỐI THỦ (PORTER'S 5 FORCES)
+
+Micro-Instructions: Split layout. Left side: 5 bullet points analyzing Porter's 5 Forces + 1 Strategic takeaway. Right side: A Market Share Pie/Donut Chart and its corresponding Data Table.
+Data Table to Render:
+
+Thương hiệu (Brand)
+
+Thị phần ước tính (%)
+
+Phân loại
+
+7Up (Suntory PepsiCo)
+
+45%
+
+Đối thủ dẫn đầu
+
+Sprite (Coca-Cola)
+
+30%
+
+Kẻ thách thức (Challenger)
+
+Mountain Dew / Mirinda Vị Chanh
+
+15%
+
+Cạnh tranh gián tiếp
+
+Schweppes & Các hãng khác
+
+10%
+
+Phân khúc ngách / Pha chế
+
+Copy to Insert:
+
+Title: THỊ TRƯỜNG & ĐỐI THỦ (MARKET LANDSCAPE)
+
+Cạnh tranh nội khối (Rivalry - CAO): Cuộc chiến thị phần khốc liệt với 7Up (chiếm 45%) giành vị thế dẫn đầu phân khúc chanh soda.
+
+Sản phẩm thay thế (Substitutes - CAO): Xu hướng bảo vệ sức khỏe và rủi ro thuế đường thúc đẩy khách hàng chuyển mạnh sang trà tươi, kombucha và nước có gas tự nhiên.
+
+Quyền lực khách hàng (Buyer Power - CAO): Gen Z có vô vàn sự lựa chọn giải khát, đòi hỏi cao về trải nghiệm cảm xúc và tính nguyên bản (authentic) của sản phẩm.
+
+Đối thủ tiềm ẩn (New Entrants - TRUNG BÌNH): Rào cản quy mô phân phối cao, nhưng các local brand ngách đang dần xuất hiện thông qua các nền tảng giao đồ ăn.
+
+Quyền lực nhà cung cấp (Supplier Power - THẤP): Sprite sở hữu lợi thế kinh tế nhờ quy mô khổng lồ và chuỗi cung ứng toàn cầu vững chắc từ Coca-Cola.
+
+Phản ứng chiến lược: Gắn kết Sprite với khoảnh khắc ẩm thực vỉa hè, định vị "hương chanh tự nhiên" để chống lại làn sóng sản phẩm thay thế và phá thế độc tôn của 7Up.
+
+SLIDE 3: BRAND POSITION MAP
+
+Micro-Instructions: Split layout. Left side: The bullet points mapping the strategic shift. Right side: A Scatter chart (Perceptual Map) and its corresponding Data Table below it.
+Chart Data Instructions:
+
+X-Axis: Lượng Đường (-10: Không đường đến 10: Nhiều đường).
+
+Y-Axis: Cảm nhận hương vị (-10: Nhân tạo/Đậm mùi đến 10: Tự nhiên/Thanh mát).
+
+Data Table to Render:
+
+Thương hiệu (Brand)
+
+Trục X (Đường)
+
+Trục Y (Tự Nhiên)
+
+Phân loại
+
+Sprite (Định vị mới "Spark")
+
+4
+
+9
+
+Mục tiêu chiến lược
+
+Sprite (Hiện tại)
+
+6
+
+5
+
+Nội bộ
+
+Sprite Không Đường
+
+-9
+
+6
+
+Nội bộ
+
+7Up (Truyền thống)
+
+7
+
+4
+
+Đối thủ trực tiếp
+
+7Up Free
+
+-9
+
+3
+
+Đối thủ trực tiếp
+
+Mirinda Vị Chanh
+
+9
+
+-6
+
+Đối thủ gián tiếp
+
+Mountain Dew (Citrus)
+
+8
+
+-8
+
+Đối thủ gián tiếp
+
+Schweppes Soda Chanh
+
+-4
+
+8
+
+Phân khúc pha chế
+
+Copy to Insert:
+
+Title: BRAND POSITION MAP
+
+Thị trường nước giải khát Việt Nam cạnh tranh gay gắt, đặc biệt với 7Up đối thủ trực tiếp trên phân khúc chanh soda.
+
+Xu hướng sức khỏe & thuế đường đang thúc đẩy người tiêu dùng chuyển sang trà tươi, kombucha và nước có ga tự nhiên.
+
+Phản ứng chiến lược: Gắn kết Sprite với khoảnh khắc ăn vặt đường phố – nhấn mạnh hương chanh tự nhiên để xóa bỏ cảm giác "nhân tạo".
+
+Cơ hội: Sprite là lựa chọn thanh lọc vị giác số 1 trong văn hóa ẩm thực vỉa hè Việt Nam.
+
+Chart Label: Định vị Thương hiệu Nước chanh có gas tại Việt Nam (Perceptual Map).
+
+SLIDE 4: THỰC TẾ THƯƠNG HIỆU & ĐỘNG LỰC TIÊU DÙNG
+
+Micro-Instructions: Bold header, intro paragraph, and a 4-pillar layout. Highlight data points and strong argumentative proofs using visual elements like bold numbers or checkmarks.
+Copy to Insert:
+
+Title: THỰC TẾ THƯƠNG HIỆU & ĐỘNG LỰC TIÊU DÙNG (BRAND REALITY)
+
+Không chỉ là một thức uống giải khát, Sprite chinh phục Gen Z Việt Nam bằng những lợi thế cạnh tranh được chứng minh bằng dữ liệu và thực tiễn kinh doanh:
+
+Di sản & Bảo chứng Toàn cầu (Heritage & Trust): Chứng minh bằng lịch sử tồn tại từ năm 1961 và hiện diện tại hơn 190 quốc gia. Dưới sự bảo chứng của The Coca-Cola Company, Sprite sở hữu quy trình kiểm soát chất lượng tuyệt đối, tạo niềm tin vững chắc cho người dùng về một thương hiệu nguyên bản từ Mỹ.
+
+Độ phủ áp đảo (90%+ Numeric Distribution): Dữ liệu thực tế cho thấy sự hiện diện gần như tuyệt đối. Từ chuỗi siêu thị lớn, hàng ngàn cửa hàng tiện lợi (CVS như Circle K, FamilyMart), hệ thống F&B (CGV, Lotteria) cho đến hơn 100,000+ xe đẩy ẩm thực vỉa hè – Sprite luôn nằm trong tầm tay khách hàng mọi lúc, mọi nơi.
+
+Chiến lược Định giá & Combo (Price Competitiveness): Năng lực chuỗi cung ứng khổng lồ giúp duy trì mức giá tối ưu (chỉ từ ~10.000 VNĐ/lon 320ml). Hơn thế, việc liên tục xuất hiện trong các "Combo siêu tiết kiệm" cùng đồ ăn trên nền tảng GrabFood/ShopeeFood giúp thúc đẩy khối lượng mua (basket size) khổng lồ mỗi ngày.
+
+Hành vi & Độ phủ Truyền thông (Omnichannel Advertising): Đặc thù ngành nước giải khát đòi hỏi mức độ nhận diện "Top of Mind" liên tục để kích thích mua bốc đồng. Sprite chiếm lĩnh không gian truyền thông đại chúng bằng TVC khung giờ vàng, hệ thống Billboard tấm lớn tại các ngã tư trọng điểm, và quảng cáo di động trên xe buýt. Sự hiện diện vật lý này kết hợp với lượng thảo luận khổng lồ trên mạng xã hội tạo nên vị thế không thể lãng quên trong tâm trí khách hàng.
+
+SLIDE 5: CUSTOMER 6W MODEL
+
+Micro-Instructions: 6 grid cards displaying the W questions and strategic answers. Include subtle nods to Wibu/Cosplay culture.
+Copy to Insert:
+
+Title: MÔ HÌNH HÀNH VI KHÁCH HÀNG 6W (CUSTOMER 6W MODEL)
+
+Subtitle: SPRITE "LEM 'ON SPARK!" VIETNAM
+
+WHO (W1): Gen Z & Millennials (18-27 tuổi) tại các đô thị lớn. Là những "foodie" chính hiệu, năng động, yêu thích văn hóa đường phố và có các "tiểu văn hóa" ngầm (như Wibu, Cosplay).
+
+WHAT (W2): Sử dụng Sprite như một công cụ "thanh lọc vị giác" để cắt ngang cảm giác ngấy mỡ, đồng thời là chất xúc tác "F5" tinh thần để thỉnh thoảng tự tin bùng nổ (Spark!), thể hiện cá tính rạng rỡ của bản thân.
+
+WHERE (W3): Xe đẩy ẩm thực vỉa hè, các cửa hàng tiện lợi (CVS như Circle K), và đặc biệt là thông qua các "Combo món ăn + Nước" trên nền tảng giao đồ ăn.
+
+WHEN (W4): Trong và sau các bữa ăn xế, ăn tối, hoặc ăn đêm cùng bạn bè. Đặc biệt trong các dịp lễ hội, tụ tập đường phố nơi họ muốn diện đồ đẹp.
+
+WHY (W5): Bị thuyết phục bởi hương chanh sảng khoái tự nhiên. Đặc biệt, thông điệp "Spark!" truyền cảm hứng để họ dám rũ bỏ sự rụt rè, tự tin tỏa sáng và "lên đồ" theo cách riêng.
+
+WHY NOT (W6): E ngại lượng đường/calo cao so với trà đá truyền thống; xu hướng chuyển dịch sang các thức uống bảo vệ sức khỏe (kombucha, nước ép).
+
+SLIDE 6: CUSTOMER VALUE PROPOSITION
+
+Micro-Instructions: Split layout or visual diagram matching the standard Value Proposition Canvas. Right side: Customer Profile (Circle). Left side: Value Map (Square). Use bullet points for clear reading. Focus on the "Dress up Sparking" aspect.
+Copy to Insert:
+
+Title: CUSTOMER VALUE PROPOSITION (CVP)
+
+Subtitle: Định vị giá trị của Sprite trong khoảnh khắc ẩm thực Gen Z
+
+CUSTOMER PROFILE (Hồ sơ khách hàng):
+
+Customer Jobs (Việc cần làm): Tìm kiếm thức uống giải khát mát lạnh khi ăn đồ đường phố. Tìm kiếm những dịp đặc biệt, những lễ hội cởi mở để "Dress up Sparking", bộc lộ cá tính ngầm (như phong cách Wibu, đường phố) cùng bạn bè.
+
+Pains (Nỗi đau): Cảm giác ngấy mỡ, đầy hơi gây tụt năng lượng ("food coma") sau bữa ăn. Cảm thấy thiếu những sân chơi an toàn, cởi mở để được diện những trang phục rực rỡ, khác biệt mà không sợ bị phán xét.
+
+Gains (Mong muốn): Khát khao cảm giác sảng khoái tức thì. Trạng thái tinh thần được "F5" để có đủ năng lượng và sự tự tin tỏa sáng, khoe trọn cá tính bản thân.
+
+VALUE MAP (Bản đồ giá trị):
+
+Products & Services (Sản phẩm/Dịch vụ): Nước ngọt có gas vị chanh tự nhiên Sprite. Lễ hội đường phố "Coca-Cola World" kết hợp ẩm thực và không gian cosplay/street style.
+
+Pain Relievers (Giải pháp giảm đau): Hương chanh tự nhiên thanh mát giúp "cắt ngang" vị béo ngậy. Tạo ra một không gian văn hóa đường phố tôn trọng sự khác biệt để giới trẻ thoải mái bùng nổ.
+
+Gain Creators (Tạo ra lợi ích): Trở thành "Palate Cleanser" hoàn hảo nhất. Tạo ra cú "bùng cháy" (Spark) năng lượng, khuyến khích Gen Z "Dress up Sparking" để ghi lại những khoảnh khắc rạng rỡ nhất của tuổi trẻ.
+
+SLIDE 7: CHIẾN DỊCH TỔNG QUAN & SỰ TỔNG HÒA Ý TƯỞNG (SYNTHESIS)
+
+Micro-Instructions: Split layout. Left side: The transition from Insight to Idea using bold typography. Right side: A visual placeholder showing a vibrant street food scene transitioning to a refreshing Sprite splash.
+Copy to Insert:
+
+Title: TỪ INSIGHT ĐẾN Ý TƯỞNG: "LEM 'ON SPARK!"
+
+Sự thật ngầm hiểu (Core Insight): Đúc kết từ mô hình 6W & CVP, Gen Z Việt Nam đam mê ẩm thực đường phố đậm vị (lẩu, nướng). Nhưng nỗi đau lớn nhất là trạng thái "Food Coma" - cảm giác no ngấy, đầy bụng làm gián đoạn cuộc vui xã hội. Hơn thế, họ luôn ủ ấp một mong muốn bùng nổ, một dịp cởi mở để được khoe cá tính.
+
+Sự tổng hòa ý tưởng (Synthesis): Họ không chỉ cần một thức uống giải khát, họ cần một "cú hích" để F5 lại trạng thái. Sprite chính là giải pháp giao thoa hoàn hảo giữa việc "Thanh lọc vị giác" (Palate Cleanser) và sự cởi mở bùng nổ năng lượng (Energy Spark).
+
+Ý TƯỞNG LỚN (BIG IDEA): LEM 'ON SPARK! - ĐÁNH THỨC HƯƠNG VỊ ĐƯỜNG PHỐ
+
+Vai trò thương hiệu (Brand Role): Một ngụm Sprite lạnh buốt sẽ đóng vai trò như một "phép màu" (Magic Wand). Nó cắt ngang vị béo ngậy, thăng hoa hương vị món ăn và thổi bùng sự tự tin để giới trẻ sẵn sàng "Spark!" mọi lúc mọi nơi.
+
+SLIDE 8: CUSTOMER JOURNEY & EXECUTION STRATEGY (3-MONTH TIMELINE)
+
+Micro-Instructions: 3-step timeline or block flow showing a 3-month journey culminating in a 3-day mega event. Focus on modern, bold typography.
+Copy to Insert:
+
+Title: CUSTOMER JOURNEY & EXECUTION STRATEGY
+
+Subtitle: TỔNG QUAN HÀNH TRÌNH 3 THÁNG: TỪ DIGITAL ĐẾN STREET FESTIVAL
+
+PHASE 1: AWARENESS & VISIBILITY (Tháng 1 - Tháng 2): Đẩy mạnh chiến lược Micro-advertisements trên GDN (Google Ads) và các trang báo điện tử (Kenh14, Zing). Tối ưu hóa hiển thị (visibility) dựa trên các từ khóa tìm kiếm về sự kiện, văn hóa ẩm thực thành phố để "teasing", kích thích sự tò mò của giới trẻ về một lễ hội đường phố sắp diễn ra.
+
+PHASE 2: ENGAGEMENT & TICKET HYPE (Đầu Tháng 3): Chuyển đổi trên nền tảng số. Tung các "Combo Spark" giới hạn trên GrabFood/ShopeeFood. Khách hàng order combo ẩm thực vỉa hè + Sprite sẽ có cơ hội nhận vé ưu tiên trải nghiệm sự kiện chính và tham gia các thử thách AR Filter "Dress up Sparking" trên TikTok.
+
+PHASE 3: THE CLIMAX - "COCA-COLA WORLD" EVENT (3 Ngày cuối chiến dịch): Lập một "sân khấu dã chiến" cực chất tại Quận 1, TP.HCM (xin phép phong tỏa tuyến phố có kiểm soát vào giờ thấp điểm). Sự kiện quy tụ các nghệ sĩ Gen Z biểu diễn và mời các tiểu thương vỉa hè truyền thống trứ danh đến mở gian hàng. Đặc biệt, đây là lễ hội mở để Gen Z tự do "Dress up Sparking" – diện trang phục rực rỡ, cosplay bùng nổ cá tính. Khẳng định mạnh mẽ định vị: Coca-Cola World & Sprite chính là một phần linh hồn của ẩm thực đường phố Việt Nam.
+
+SLIDE 9: PERSONAS
+
+Micro-Instructions: Persona profile layout adapted to the Sprite campaign context. Clean modern layout with quote highlighted. Highlight Wibu/Introvert aspect.
+Copy to Insert:
+
+Title: PERSONAS
+
+Name: HÀ MY, Sinh viên Đại học / Age: 20 / Lifestyle: Ít khi la cà, thích sự an toàn (Introvert) và là một "Wibu" chính hiệu, luôn ủ ấp mong muốn được bùng nổ cá tính ngầm.
+
+Quote: "Bình thường mình khá lười ra ngoài, nhưng khi lướt báo thấy quảng cáo sự kiện Coca-Cola World phong tỏa hẳn một tuyến đường... đây đúng là cái cớ hoàn hảo để mình rũ bỏ sự rụt rè, 'Dress up Sparking' bùng nổ với bộ đồ cosplay yêu thích, vừa ăn vặt vỉa hè vừa tự tin khoe cá tính!"
+
+Digital Influencers: 80% Đọc tin tức sự kiện, đời sống trên Kenh14/Zing; 75% Bị thu hút bởi Micro-Ads (Google Ads) nhắm mục tiêu theo ngữ cảnh tin tức đang đọc.
+
+Key Data Metrics: 65% sinh viên có xu hướng bị thuyết phục bước ra khỏi nhà bởi các sự kiện "All-in-one" (Ăn uống + Giải trí + Trải nghiệm văn hóa) được tổ chức bởi các thương hiệu lớn.
+
+Motivations: Vô tình tiếp cận thông tin qua quảng cáo hiển thị khi đang đọc tin tức. Tìm kiếm một lễ hội cởi mở, an toàn để rủ hội bạn thân cùng "lên đồ" rạng rỡ và tận hưởng ẩm thực đường phố.
+
+Core Needs: Cần một lý do đủ lớn để bước ra khỏi "vùng an toàn". Cần một không gian tôn trọng sự khác biệt để tự tin "Spark!", cùng một lon Sprite thanh mát để giải quyết cảm giác đầy hơi khi ăn đa dạng các món vỉa hè tại sự kiện.
+
+SLIDE 10: 3C MARKETING STRATEGY
+
+Micro-Instructions: Diagram showing Customer, Company, and Competitors interacting. Emphasize "First Mover Advantage".
+Copy to Insert:
+
+Title: 3C MARKETING STRATEGY
+
+Customer (Khách hàng): Tìm kiếm trải nghiệm ẩm thực đường phố được "nâng tầm": một không gian an toàn, cởi mở, nơi họ có thể vừa thưởng thức món ngon vừa tự tin thể hiện cá tính ngầm (Dress up Sparking).
+
+Company (Sprite / Coca-Cola): Nâng tầm uy tín (brand trust) thông qua năng lực tổ chức một sự kiện đường phố quy mô lớn, an toàn và sạch sẽ. Khẳng định vị thế là người bảo trợ vững chắc cho văn hóa đường phố Việt Nam.
+
+Competitors (Đối thủ - 7Up): Có đủ tiềm lực tài chính để tổ chức các sự kiện tương tự. Tuy nhiên, điểm yếu của họ là chưa xây dựng được sợi dây liên kết cảm xúc sâu sắc với các "tiểu văn hóa" của giới trẻ (như Wibu/Cosplay).
+
+Cơ hội chiến lược (Strategic Intersection): Lợi thế của người tiên phong (First-Mover Advantage). Đối thủ có thể sao chép event, nhưng Sprite sẽ là thương hiệu làm điều này đầu tiên. Kẻ đi trước sẽ thiết lập tiêu chuẩn trong tâm trí khách hàng, tạo ra một di sản truyền thông (marketing stand) độc tôn và không thể sao chép.
+
+SLIDE 11: CHIẾN LƯỢC LAN TỎA KÉP (B2C & B2B VIRAL STRATEGY)
+
+Micro-Instructions: Split or 2-column layout. Left side representing B2C (Viral trend/Social), Right side representing B2B (PR/Vendors). Use dynamic icons (like TikTok logo, Megaphone, Handshake).
+Copy to Insert:
+
+Title: CHIẾN LƯỢC LAN TỎA KÉP: B2C & B2B (AMPLIFICATION STRATEGY)
+
+B2C: Tự Viral & Đu Trend (Người Tiêu Dùng):
+
+Thiết kế sự kiện "Coca-Cola World" ngập tràn góc check-in đường phố độc lạ và các trạm "Dress up Sparking", tạo ra hiệu ứng FOMO mạnh mẽ.
+
+Thu hút các Food Reviewer, TikToker ẩm thực tự nguyện đến quay vlog, "đu trend" rạng rỡ mà không cần trả phí booking (Earned Media), kích hoạt hàng ngàn nội dung do người dùng tạo ra (UGC - User Generated Content) lan truyền tự nhiên.
+
+B2B: Bảo Trợ Văn Hóa & Báo Chí (Tiểu Thương & Đối Tác):
+
+Tổ chức một sự kiện vỉa hè văn minh, sạch sẽ và an toàn là câu chuyện tuyệt vời về Trách nhiệm Xã hội (CSR) và Tôn vinh văn hóa.
+
+Thu hút các báo đài truyền thông đại chúng uy tín (Tuổi Trẻ, Thanh Niên, Báo Thành Phố) tự động đưa tin biểu dương.
+
+Uy tín này là "vũ khí" B2B đắc lực, giúp đội ngũ Sales Sprite dễ dàng thuyết phục các tiểu thương, chủ xe đẩy, quán ăn đường phố ký hợp đồng nhập hàng dài hạn và ưu tiên trưng bày POSM sau khi chiến dịch kết thúc.
+
+SLIDE 12: SWOT SYNTHESIS
+
+Micro-Instructions: 2x2 Grid layout. Each quadrant features a clean, professional icon (Strong, Weak, Opportunity, Threat). Use bullet points for high-impact readability. Copy to Insert:
+
+Title: SWOT SYNTHESIS: CHIẾN LƯỢC TỔNG LỰC
+
+STRENGTHS (Điểm mạnh - Nội tại): Brand equity vững chắc, nhận diện thương hiệu "Lát chanh vàng" iconic. Năng lực chuỗi cung ứng toàn cầu đảm bảo giá cạnh tranh (Price Competitiveness). Khả năng tổ chức các hoạt động trải nghiệm quy mô lớn, chuyên nghiệp.
+
+WEAKNESSES (Điểm yếu - Nội tại): Lo ngại về ga và lượng đường (cần truyền thông khéo léo). Chi phí vận hành sự kiện lớn (Event Logistics), rủi ro cao về thời tiết hoặc quá tải nếu quản lý địa điểm không tốt.
+
+OPPORTUNITIES (Cơ hội - Ngoại cảnh): Văn hóa ẩm thực đường phố bùng nổ. Sự chuyển dịch sang các khu đô thị vệ tinh hiện đại (The Global City, Sala) giúp kiểm soát không gian, tăng tính an toàn và trải nghiệm "Spark!" tốt hơn. Tích hợp combo số hóa (GrabFood/ShopeeFood).
+
+THREATS (Thách thức - Ngoại cảnh): Thuế đường (Sugar Tax) gây áp lực lên giá thành. Đối thủ 7Up liên tục phản ứng bằng các campaign tương tự. Thay đổi hành vi khách hàng sang các thức uống "Healthy" (Trà tươi, Kombucha).
+
+SLIDE 13: EXECUTIVE CAMPAIGN SUMMARY
+
+Micro-Instructions: Dashboard layout summarizing the master plan.
+Copy to Insert:
+
+Title: EXECUTIVE CAMPAIGN SUMMARY
+
+BRAND STATUS: Sprite is a leading beverage brand. In 2026, Sprite aims to become the ultimate lifestyle companion for Gen-Z street food culture.
+
+OBJECTIVE: Business: Increase sales via food app combos and on-site activations. Marketing: Strengthen brand awareness as a palate cleanser. Communication: Connect the "refreshing" functional value with the emotional "spark" of street culture.
+
+INSIGHTS: Gen Z doesn't just want a drink; they want a "rescue" from post-meal lethargy (food coma) to keep their social energy alive.
+
+BIG IDEA: LEM 'ON SPARK! - Transforming the heavy food slump into instant refreshment.
+
+TARGET AUDIENCE: Age: 18-27. Digital-native, trend-sensitive, including both street food lovers and introverted youths looking for safe, curated experiences to "dress up sparking".
+
+KEY MESSAGE: ĐÁNH THỨC GIÁC QUAN, THĂNG HOA HƯƠNG VỊ (It's That Fresh)
+
+PHASE 1 (AWARENESS): Micro-ads on news sites driving curiosity.
+
+PHASE 2 (ENGAGEMENT): Food App Combos & VIP Ticket hunt.
+
+PHASE 3 (AMPLIFICATION): The Climax - 3-day Coca-Cola World Street Festival in District 1.
+
+SLIDE 14: CAMPAIGN BUDGET ESTIMATION
+
+Micro-Instructions: Clean table layout mapping out the budget allocations.
+Copy to Insert:
+
+Title: CAMPAIGN BUDGET ESTIMATION
+
+TOTAL CAMPAIGN BUDGET: 10,000,000,000 VND (100%)
+
+BUDGET ALLOCATIONS (VND) Table:
+
+Phase 1 (Awareness & Visibility): Micro-ads, PR Articles, Google GDN keywords targeting city events and news readers. | 2,000,000,000 | 20% | Google Ads, News Sites, Display Network.
+
+Phase 2 (Engagement & Ticket Hype): Maximizing food app combo sales and event ticket distributions. | 3,000,000,000 | 30% | GrabFood/ShopeeFood Promos, Trade Marketing.
+
+Phase 3 (Coca-Cola World Event): The climax. Setup for D1 pop-up stage, artists, vendor sponsorships, permits, livestreams. | 4,000,000,000 | 40% | Event Production, Talent Fees, Permits, PR Amplification.
+
+Others: Content production, logistics, contingency. | 1,000,000,000 | 10% | Tools, Misc, Contingency.
+
+BUDGET BREAKDOWN BY CHANNEL:
+
+Event Production & Permits (D1 Setup): 3,500,000,000
+
+Trade Marketing & Delivery Apps: 2,500,000,000
+
+Google Ads & PR Articles: 1,500,000,000
+
+Talent Fees & Performers: 1,000,000,000
+
+Digital Amplification (Social/Livestreams): 1,000,000,000
+
+Others (Logistics, Misc): 500,000,000
+
+SLIDE 15: METRICS & KEY SUCCESS INDICATORS
+
+Micro-Instructions: Large KPI numbers arranged in a grid or dashboard.
+Copy to Insert:
+
+Title: METRICS & KEY SUCCESS INDICATORS
+
+METRICS & KPIs OVERVIEW Table:
+
+01 AWARENESS & VISIBILITY: Reach: 15M+ | Display Impressions: 25M+ | PR Article Views: 2M+
+
+02 ENGAGEMENT & TICKET HYPE: App Traffic: 1M+ | Combo Sales: 150K+ | Event Tickets Claimed: 10,000+
+
+03 COCA-COLA WORLD EVENT (OFFLINE & ONLINE): Offline Attendees: 15K+ | Livestream Views: 5M+ | UGC Content & Check-ins: 20,000+
+
+TOP STATS:
+
+TOTAL REACH: 20M+ people
+
+EVENT ATTENDEES: 15,000+ pax
+
+COMBO CONVERSIONS: 150,000+ units
+
+IMPRESSIONS: 35M+ impressions
+
+EARNED MEDIA VALUE: +30% ROI
+
+UGC (Check-ins/Hashtags): 20,000+ posts
+
+SLIDE 16: THANK YOU
+
+Micro-Instructions: Minimalist closing slide.
+Copy to Insert:
+
+Title: THANK YOU
+
+"Đánh thức giác quan, thăng hoa hương vị"
+
+Sprite "Lem 'On Spark!" Campaign | Vietnam Market
+
+contact@sprite-vietnam.com
+
+Sprite Vietnam | Coca-Cola Vietnam Beverages Ltd.
