@@ -173,7 +173,11 @@ const revealObserver = new IntersectionObserver(
   }
 );
 
-revealItems.forEach((item) => revealObserver.observe(item));
+if (isCoarsePointer) {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+} else {
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
 
 if (timeline) {
   const timelineObserver = new IntersectionObserver(
