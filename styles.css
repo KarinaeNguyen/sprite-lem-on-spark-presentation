@@ -1371,10 +1371,9 @@ body.demo-mode .panel {
     display: none !important;
   }
 
-  .mobile-progress-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .mobile-progress-toggle,
+  .mobile-progress-menu {
+    display: none !important;
   }
 
   .split,
