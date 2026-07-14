@@ -1368,7 +1368,7 @@ body.demo-mode .panel {
 @media (max-width: 980px) {
   .section-progress,
   .scroll-nav {
-    display: none;
+    display: none !important;
   }
 
   .mobile-progress-toggle {
@@ -1523,6 +1523,11 @@ body.demo-mode .panel {
   .converge-arrows {
     gap: 16%;
   }
+}
+
+/* When the mobile section menu is open, force-hide the side progress rail to avoid overlap. */
+.mobile-progress-menu:not([hidden]) + .section-progress {
+  display: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
