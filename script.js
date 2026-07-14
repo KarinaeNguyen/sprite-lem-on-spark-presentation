@@ -22,6 +22,7 @@ const closeMobileProgressMenu = () => {
 
   mobileProgressMenu.hidden = true;
   mobileProgressToggle.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("mobile-menu-open");
 };
 
 const openMobileProgressMenu = () => {
@@ -31,6 +32,7 @@ const openMobileProgressMenu = () => {
 
   mobileProgressMenu.hidden = false;
   mobileProgressToggle.setAttribute("aria-expanded", "true");
+  document.body.classList.add("mobile-menu-open");
 };
 
 const setProgressFillRatio = (ratio) => {
