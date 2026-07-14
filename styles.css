@@ -301,8 +301,8 @@ body:not(.compact-progress-nav) .mobile-progress-menu {
   letter-spacing: 0.02em;
   color: var(--lemon-accent);
   text-shadow: 0 0 8px rgba(255, 228, 92, 0.35);
-  opacity: 0;
-  transform: translateY(6px);
+  opacity: 0.78;
+  transform: translateY(0);
   transition: opacity 160ms ease, transform 160ms ease;
 }
 
@@ -370,7 +370,7 @@ body:not(.compact-progress-nav) .mobile-progress-menu {
 
 .sun-scrubber.is-active .sun-section-label {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 
 .mobile-progress-link {
@@ -1586,6 +1586,7 @@ body.demo-mode .panel {
   main {
     width: calc(100vw - 20px);
     padding-top: 82px;
+    padding-bottom: 168px;
   }
 
   .panel {
@@ -1614,6 +1615,7 @@ body.demo-mode .panel {
   .top-cta {
     font-size: 0.78rem;
     padding: 7px 10px;
+    white-space: nowrap;
   }
 
   .demo-toggle,
@@ -1639,6 +1641,32 @@ body.demo-mode .panel {
 
   .sun-scrubber {
     width: min(252px, calc(100vw - 18px));
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar {
+    padding: 7px 8px;
+    gap: 6px;
+  }
+
+  .top-actions {
+    gap: 6px;
+  }
+
+  .brand {
+    font-size: 0.8rem;
+    max-width: 44vw;
+  }
+
+  .top-cta {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+
+  .demo-toggle {
+    padding: 6px 7px;
+    font-size: 0.62rem;
   }
 }
 
