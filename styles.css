@@ -212,6 +212,71 @@ canvas {
   box-shadow: 0 0 0 1px rgba(143, 255, 84, 0.45), 0 0 18px rgba(143, 255, 84, 0.45);
 }
 
+.top-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.demo-toggle,
+.mobile-progress-toggle {
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  background: rgba(16, 22, 25, 0.92);
+  color: var(--text);
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.demo-toggle {
+  border-color: rgba(255, 228, 92, 0.55);
+}
+
+.demo-toggle[aria-pressed="true"] {
+  background: rgba(255, 228, 92, 0.18);
+  color: var(--lemon-accent);
+  box-shadow: 0 0 10px rgba(255, 228, 92, 0.32);
+}
+
+.mobile-progress-toggle {
+  display: none;
+}
+
+.mobile-progress-menu {
+  position: fixed;
+  top: 64px;
+  right: 14px;
+  z-index: 30;
+  display: grid;
+  gap: 6px;
+  min-width: 180px;
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  background: rgba(11, 16, 18, 0.95);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  padding: 10px;
+}
+
+.mobile-progress-link {
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid rgba(143, 255, 84, 0.24);
+  border-radius: 10px;
+  padding: 7px 9px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: rgba(16, 22, 25, 0.88);
+}
+
+.mobile-progress-link:hover,
+.mobile-progress-link.is-active {
+  border-color: rgba(255, 228, 92, 0.52);
+  color: var(--lemon-accent);
+}
+
 .section-progress {
   position: fixed;
   right: 18px;
@@ -221,12 +286,15 @@ canvas {
   grid-template-columns: 4px auto;
   gap: 10px;
   align-items: stretch;
+  min-height: 280px;
+  max-height: 64vh;
   z-index: 26;
 }
 
 .progress-track {
   position: relative;
   width: 4px;
+  height: 100%;
   border-radius: 999px;
   background: rgba(143, 255, 84, 0.18);
   overflow: hidden;
@@ -1273,6 +1341,18 @@ main {
   transform: translateY(0);
 }
 
+body.demo-mode .section-index,
+body.demo-mode .unit-econ-formula,
+body.demo-mode .video-fallback,
+body.demo-mode .data-table,
+body.demo-mode .compact {
+  display: none;
+}
+
+body.demo-mode .panel {
+  padding-top: clamp(24px, 3.2vw, 44px);
+}
+
 .hero-title,
 .section-title,
 .counter,
@@ -1284,6 +1364,12 @@ main {
   .section-progress,
   .scroll-nav {
     display: none;
+  }
+
+  .mobile-progress-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .split,
@@ -1410,6 +1496,12 @@ main {
   .top-cta {
     font-size: 0.78rem;
     padding: 7px 10px;
+  }
+
+  .demo-toggle,
+  .mobile-progress-toggle {
+    font-size: 0.67rem;
+    padding: 6px 8px;
   }
 
   .bullet-list {

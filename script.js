@@ -1,8 +1,12 @@
 const sections = [...document.querySelectorAll("main .panel")];
 const navDots = [...document.querySelectorAll(".scroll-nav .nav-dot")];
 const sectionProgressLinks = [...document.querySelectorAll(".section-progress .progress-link")];
-const navLinks = [...navDots, ...sectionProgressLinks];
+const mobileProgressLinks = [...document.querySelectorAll(".mobile-progress-link")];
+const navLinks = [...navDots, ...sectionProgressLinks, ...mobileProgressLinks];
 const progressFill = document.querySelector("#progress-fill");
+const mobileProgressToggle = document.querySelector(".mobile-progress-toggle");
+const mobileProgressMenu = document.querySelector("#mobile-progress-menu");
+const demoToggle = document.querySelector(".demo-toggle");
 const revealItems = [...document.querySelectorAll(".reveal")];
 const timeline = document.querySelector(".timeline");
 const chartBlocks = [...document.querySelectorAll(".chart-animate")];
@@ -11,6 +15,33 @@ const root = document.documentElement;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
 const canAnimateCursor = !prefersReducedMotion && !isCoarsePointer;
+
+const closeMobileProgressMenu = () => {
+  if (!mobileProgressMenu || !mobileProgressToggle) {
+    return;
+  }
+
+  mobileProgressMenu.hidden = true;
+  mobileProgressToggle.setAttribute("aria-expanded", "false");
+};
+
+const openMobileProgressMenu = () => {
+  if (!mobileProgressMenu || !mobileProgressToggle) {
+    return;
+  }
+
+  mobileProgressMenu.hidden = false;
+  mobileProgressToggle.setAttribute("aria-expanded", "true");
+};
+
+const setProgressFillRatio = (ratio) => {
+  if (!progressFill) {
+    return;
+  }
+
+  const clampedRatio = Math.min(Math.max(ratio, 0), 1);
+  progressFill.style.height = `${(clampedRatio * 100).toFixed(2)}%`;
+};
 
 const promotePrefixHeadlines = () => {
   const candidates = [
@@ -142,6 +173,11 @@ const setActiveNav = (id) => {
   navLinks.forEach((dot) => {
     dot.classList.toggle("is-active", dot.getAttribute("href") === `#${id}`);
   });
+
+  const activeIndex = sections.findIndex((section) => section.id === id);
+  if (activeIndex >= 0 && sections.length > 1) {
+    setProgressFillRatio(activeIndex / (sections.length - 1));
+  }
 };
 
 navLinks.forEach((link) => {
@@ -150,6 +186,8 @@ navLinks.forEach((link) => {
     if (targetId) {
       setActiveNav(targetId);
     }
+
+    closeMobileProgressMenu();
   });
 });
 
@@ -158,16 +196,29 @@ const updateProgressFill = () => {
     return;
   }
 
-  const scrollTop = window.scrollY || window.pageYOffset;
+  const scroller = document.scrollingElement || document.documentElement;
+  const scrollTop = scroller?.scrollTop || window.scrollY || window.pageYOffset || 0;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
   if (maxScroll <= 0) {
-    progressFill.style.height = "0%";
+    setProgressFillRatio(0);
     return;
   }
 
-  const ratio = Math.min(Math.max(scrollTop / maxScroll, 0), 1);
-  progressFill.style.height = `${(ratio * 100).toFixed(2)}%`;
+  setProgressFillRatio(scrollTop / maxScroll);
+};
+
+let progressRafId = null;
+
+const requestProgressFillUpdate = () => {
+  if (progressRafId) {
+    return;
+  }
+
+  progressRafId = requestAnimationFrame(() => {
+    progressRafId = null;
+    updateProgressFill();
+  });
 };
 
 const sectionObserver = new IntersectionObserver(
@@ -185,16 +236,70 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach((section) => sectionObserver.observe(section));
 
-window.addEventListener("scroll", updateProgressFill, { passive: true });
-window.addEventListener("resize", updateProgressFill);
+if (mobileProgressToggle && mobileProgressMenu) {
+  mobileProgressToggle.addEventListener("click", () => {
+    const isOpen = mobileProgressToggle.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      closeMobileProgressMenu();
+    } else {
+      openMobileProgressMenu();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      mobileProgressMenu.hidden ||
+      mobileProgressMenu.contains(event.target) ||
+      mobileProgressToggle.contains(event.target)
+    ) {
+      return;
+    }
+
+    closeMobileProgressMenu();
+  });
+}
+
+if (demoToggle) {
+  const params = new URLSearchParams(window.location.search);
+  const demoFromUrl = params.get("demo") === "1";
+  const demoFromStorage = window.localStorage.getItem("spriteDeckDemoMode") === "1";
+  const shouldEnableDemo = demoFromUrl || demoFromStorage;
+
+  const setDemoMode = (enabled) => {
+    document.body.classList.toggle("demo-mode", enabled);
+    demoToggle.setAttribute("aria-pressed", enabled ? "true" : "false");
+    window.localStorage.setItem("spriteDeckDemoMode", enabled ? "1" : "0");
+
+    const url = new URL(window.location.href);
+    if (enabled) {
+      url.searchParams.set("demo", "1");
+    } else {
+      url.searchParams.delete("demo");
+    }
+
+    window.history.replaceState({}, "", url.toString());
+  };
+
+  setDemoMode(shouldEnableDemo);
+
+  demoToggle.addEventListener("click", () => {
+    const next = demoToggle.getAttribute("aria-pressed") !== "true";
+    setDemoMode(next);
+  });
+}
+
+window.addEventListener("scroll", requestProgressFillUpdate, { passive: true });
+window.addEventListener("resize", requestProgressFillUpdate);
 window.addEventListener("hashchange", () => {
   const hashId = window.location.hash.replace("#", "");
   if (hashId) {
     setActiveNav(hashId);
   }
+
+  requestProgressFillUpdate();
 });
 
-updateProgressFill();
+requestProgressFillUpdate();
 
 const initialHashId = window.location.hash.replace("#", "");
 if (initialHashId) {
