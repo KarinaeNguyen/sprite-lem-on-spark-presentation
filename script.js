@@ -168,7 +168,11 @@ const createSparkles = () => {
     return;
   }
 
-  const totalSparkles = window.innerWidth < 700 ? 10 : 22;
+  if (window.innerWidth <= 980) {
+    return;
+  }
+
+  const totalSparkles = window.innerWidth < 1200 ? 14 : 20;
 
   for (let i = 0; i < totalSparkles; i += 1) {
     const spark = document.createElement("span");
@@ -198,6 +202,8 @@ if (canAnimateCursor) {
   let currentX = targetX;
   let currentY = targetY;
   let rafId = null;
+  let idleTimerId = null;
+  let isCursorRunning = false;
 
   const renderCursorGradient = () => {
     currentX += (targetX - currentX) * 0.14;
@@ -209,14 +215,36 @@ if (canAnimateCursor) {
     root.style.setProperty("--mx", `${x.toFixed(2)}%`);
     root.style.setProperty("--my", `${y.toFixed(2)}%`);
 
-    rafId = requestAnimationFrame(renderCursorGradient);
+    if (isCursorRunning) {
+      rafId = requestAnimationFrame(renderCursorGradient);
+    }
   };
 
   root.style.setProperty("--cursor-strength", "0.55");
 
+  const stopGradient = () => {
+    isCursorRunning = false;
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  };
+
+  const scheduleIdleStop = () => {
+    if (idleTimerId) {
+      clearTimeout(idleTimerId);
+    }
+
+    idleTimerId = window.setTimeout(() => {
+      root.style.setProperty("--cursor-strength", "0.5");
+      stopGradient();
+    }, 150);
+  };
+
   const startGradient = () => {
     root.style.setProperty("--cursor-strength", "1");
-    if (!rafId) {
+    if (!isCursorRunning) {
+      isCursorRunning = true;
       rafId = requestAnimationFrame(renderCursorGradient);
     }
   };
@@ -225,15 +253,21 @@ if (canAnimateCursor) {
     targetX = event.clientX;
     targetY = event.clientY;
     startGradient();
+    scheduleIdleStop();
   });
 
-  window.addEventListener("mouseenter", startGradient);
+  window.addEventListener("mouseenter", () => {
+    startGradient();
+    scheduleIdleStop();
+  });
 
   window.addEventListener("mouseleave", () => {
+    if (idleTimerId) {
+      clearTimeout(idleTimerId);
+    }
     root.style.setProperty("--cursor-strength", "0.35");
+    stopGradient();
   });
-
-  startGradient();
 } else {
   root.style.setProperty("--cursor-strength", "0");
 }
@@ -272,27 +306,6 @@ const updateProgressFill = () => {
   setProgressFillRatio(scrollTop / maxScroll);
 };
 
-const updateActiveNavByViewport = () => {
-  if (sections.length === 0) {
-    return;
-  }
-
-  const viewportAnchor = window.innerHeight * 0.45;
-  let bestSection = sections[0];
-  let bestDistance = Number.POSITIVE_INFINITY;
-
-  sections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    const distance = Math.abs(rect.top - viewportAnchor);
-    if (distance < bestDistance) {
-      bestDistance = distance;
-      bestSection = section;
-    }
-  });
-
-  setActiveNav(bestSection.id);
-};
-
 const getCurrentSectionId = () => {
   if (sections.length === 0) {
     return "";
@@ -312,6 +325,15 @@ const getCurrentSectionId = () => {
   });
 
   return bestSection.id;
+};
+
+const updateActiveNavByViewport = () => {
+  const id = getCurrentSectionId();
+  if (!id) {
+    return;
+  }
+
+  setActiveNav(id);
 };
 
 const updateSunScrubber = () => {
@@ -412,42 +434,12 @@ const requestProgressFillUpdate = () => {
   });
 };
 
-let lastSyncedScrollTop = -1;
-let lastSyncedHash = "";
-
-const syncProgressState = () => {
-  const scroller = document.scrollingElement || document.documentElement;
-  const scrollTop = scroller?.scrollTop || window.scrollY || window.pageYOffset || 0;
-  const hash = window.location.hash;
-
-  if (scrollTop === lastSyncedScrollTop && hash === lastSyncedHash) {
-    return;
-  }
-
-  lastSyncedScrollTop = scrollTop;
-  lastSyncedHash = hash;
-  requestProgressFillUpdate();
-};
-
-const startProgressSyncLoop = () => {
-  if (typeof requestAnimationFrame !== "function") {
-    window.setInterval(syncProgressState, 180);
-    return;
-  }
-
-  const tick = () => {
-    syncProgressState();
-    requestAnimationFrame(tick);
-  };
-
-  requestAnimationFrame(tick);
-};
-
 const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setActiveNav(entry.target.id);
+        requestProgressFillUpdate();
       }
     });
   },
@@ -526,9 +518,13 @@ window.addEventListener("hashchange", () => {
 
   requestProgressFillUpdate();
 });
+window.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    requestProgressFillUpdate();
+  }
+});
 
 requestProgressFillUpdate();
-startProgressSyncLoop();
 
 const initialHashId = window.location.hash.replace("#", "");
 if (initialHashId) {

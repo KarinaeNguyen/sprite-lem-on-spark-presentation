@@ -674,7 +674,7 @@ main {
 
 .split {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 14px;
   margin-top: 24px;
 }
@@ -690,7 +690,7 @@ main {
 
 .force-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
 }
 
@@ -715,7 +715,7 @@ main {
 
 .slide3-three {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
 }
 
@@ -1245,13 +1245,17 @@ main {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 12px;
   margin-top: 24px;
 }
 
 .stat {
   text-align: center;
+  border: 1px solid rgba(143, 255, 84, 0.25);
+  border-radius: 14px;
+  padding: 10px 8px;
+  background: rgba(14, 20, 22, 0.72);
 }
 
 .counter {
@@ -1259,6 +1263,23 @@ main {
   font-family: "Bricolage Grotesque", sans-serif;
   font-size: clamp(1.9rem, 4vw, 3.2rem);
   font-weight: 800;
+}
+
+.metric-title {
+  margin: 6px 0 2px;
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+  color: var(--lemon-accent);
+  line-height: 1.25;
+}
+
+.metric-unit {
+  margin: 0;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(228, 255, 232, 0.86);
 }
 
 .contact {
