@@ -14,8 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="patch-viz.css" />
+    <link rel="stylesheet" href="styles.css?v=20260714a" />
+    <link rel="stylesheet" href="patch-viz.css?v=20260714a" />
   </head>
   <body>
     <div class="ambient-bg" aria-hidden="true"></div>
@@ -524,8 +524,16 @@
       </section>
     </main>
 
+    <div class="sun-scrubber" data-sun-scrubber hidden>
+      <div class="sun-track" data-sun-track aria-label="Section scrubber">
+        <span class="sun-arc" aria-hidden="true"></span>
+        <span class="sun-handle" data-sun-handle aria-hidden="true"></span>
+      </div>
+      <p class="sun-section-label" data-sun-label aria-live="polite">Intro</p>
+    </div>
+
     <script src="vendor/chart.umd.min.js"></script>
-    <script src="script.js"></script>
-    <script src="patch-viz.js"></script>
+    <script src="script.js?v=20260714c"></script>
+    <script src="patch-viz.js?v=20260714c"></script>
   </body>
 </html>

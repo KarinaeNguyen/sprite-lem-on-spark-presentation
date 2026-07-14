@@ -3,8 +3,12 @@ const sectionProgressLinks = [...document.querySelectorAll(".section-progress .p
 const mobileProgressLinks = [...document.querySelectorAll(".mobile-progress-link")];
 const navLinks = [...sectionProgressLinks, ...mobileProgressLinks];
 const progressFill = document.querySelector("#progress-fill");
+const sectionProgress = document.querySelector(".section-progress");
 const mobileProgressToggle = document.querySelector(".mobile-progress-toggle");
 const mobileProgressMenu = document.querySelector("#mobile-progress-menu");
+const sunScrubber = document.querySelector("[data-sun-scrubber]");
+const sunTrack = document.querySelector("[data-sun-track]");
+const sunLabel = document.querySelector("[data-sun-label]");
 const demoToggle = document.querySelector(".demo-toggle");
 const revealItems = [...document.querySelectorAll(".reveal")];
 const timeline = document.querySelector(".timeline");
@@ -14,6 +18,13 @@ const root = document.documentElement;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
 const canAnimateCursor = !prefersReducedMotion && !isCoarsePointer;
+const sectionLabelMap = new Map(
+  sectionProgressLinks.map((link) => [
+    (link.getAttribute("href") || "").replace("#", ""),
+    (link.querySelector(".progress-text")?.textContent || link.textContent || "").trim(),
+  ])
+);
+let isSunDragging = false;
 
 const closeMobileProgressMenu = () => {
   if (!mobileProgressMenu || !mobileProgressToggle) {
@@ -35,6 +46,31 @@ const openMobileProgressMenu = () => {
   document.body.classList.add("mobile-menu-open");
 };
 
+const syncProgressNavMode = () => {
+  const isCompact = window.innerWidth <= 980;
+  document.body.classList.toggle("compact-progress-nav", isCompact);
+
+  if (sunScrubber) {
+    sunScrubber.hidden = !isCompact;
+  }
+
+  if (isCompact) {
+    sectionProgress?.style.setProperty("display", "none", "important");
+    mobileProgressToggle?.style.setProperty("display", "none", "important");
+    mobileProgressMenu?.style.setProperty("display", "none", "important");
+    closeMobileProgressMenu();
+    return;
+  }
+
+  sectionProgress?.style.removeProperty("display");
+  mobileProgressToggle?.style.setProperty("display", "none", "important");
+  mobileProgressMenu?.style.setProperty("display", "none", "important");
+
+  if (!isCompact) {
+    closeMobileProgressMenu();
+  }
+};
+
 const setProgressFillRatio = (ratio) => {
   if (!progressFill) {
     return;
@@ -42,6 +78,38 @@ const setProgressFillRatio = (ratio) => {
 
   const clampedRatio = Math.min(Math.max(ratio, 0), 1);
   progressFill.style.height = `${(clampedRatio * 100).toFixed(2)}%`;
+};
+
+const setSunProgressRatio = (ratio) => {
+  if (!sunTrack) {
+    return;
+  }
+
+  const clampedRatio = Math.min(Math.max(ratio, 0), 1);
+  sunTrack.style.setProperty("--sun-progress", clampedRatio.toFixed(4));
+};
+
+const getSectionDisplayName = (sectionId) => {
+  if (!sectionId) {
+    return "";
+  }
+
+  const fromMap = sectionLabelMap.get(sectionId);
+  if (fromMap) {
+    return fromMap;
+  }
+
+  const section = document.getElementById(sectionId);
+  if (!section) {
+    return sectionId;
+  }
+
+  const title = section.querySelector(".section-title") || section.querySelector(".hero-title");
+  if (title?.textContent?.trim()) {
+    return title.textContent.trim();
+  }
+
+  return sectionId;
 };
 
 const promotePrefixHeadlines = () => {
@@ -174,11 +242,6 @@ const setActiveNav = (id) => {
   navLinks.forEach((dot) => {
     dot.classList.toggle("is-active", dot.getAttribute("href") === `#${id}`);
   });
-
-  const activeIndex = sections.findIndex((section) => section.id === id);
-  if (activeIndex >= 0 && sections.length > 1) {
-    setProgressFillRatio(activeIndex / (sections.length - 1));
-  }
 };
 
 navLinks.forEach((link) => {
@@ -209,9 +272,134 @@ const updateProgressFill = () => {
   setProgressFillRatio(scrollTop / maxScroll);
 };
 
+const updateActiveNavByViewport = () => {
+  if (sections.length === 0) {
+    return;
+  }
+
+  const viewportAnchor = window.innerHeight * 0.45;
+  let bestSection = sections[0];
+  let bestDistance = Number.POSITIVE_INFINITY;
+
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const distance = Math.abs(rect.top - viewportAnchor);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestSection = section;
+    }
+  });
+
+  setActiveNav(bestSection.id);
+};
+
+const getCurrentSectionId = () => {
+  if (sections.length === 0) {
+    return "";
+  }
+
+  const viewportAnchor = window.innerHeight * 0.45;
+  let bestSection = sections[0];
+  let bestDistance = Number.POSITIVE_INFINITY;
+
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const distance = Math.abs(rect.top - viewportAnchor);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestSection = section;
+    }
+  });
+
+  return bestSection.id;
+};
+
+const updateSunScrubber = () => {
+  if (!sunTrack || !sunLabel) {
+    return;
+  }
+
+  const scroller = document.scrollingElement || document.documentElement;
+  const scrollTop = scroller?.scrollTop || window.scrollY || window.pageYOffset || 0;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = maxScroll > 0 ? scrollTop / maxScroll : 0;
+
+  setSunProgressRatio(ratio);
+
+  const currentId = getCurrentSectionId();
+  if (!currentId) {
+    return;
+  }
+
+  sunLabel.textContent = getSectionDisplayName(currentId);
+};
+
+const scrubScrollToClientX = (clientX) => {
+  if (!sunTrack) {
+    return;
+  }
+
+  const rect = sunTrack.getBoundingClientRect();
+  const ratio = (clientX - rect.left) / rect.width;
+  const clampedRatio = Math.min(Math.max(ratio, 0), 1);
+  const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+  const scroller = document.scrollingElement || document.documentElement;
+
+  scroller.scrollTop = maxScroll * clampedRatio;
+  setSunProgressRatio(clampedRatio);
+  updateSunScrubber();
+};
+
+const setupSunScrubber = () => {
+  if (!sunTrack || !sunScrubber) {
+    return;
+  }
+
+  const endSunDrag = () => {
+    if (!isSunDragging) {
+      return;
+    }
+
+    isSunDragging = false;
+    sunScrubber.classList.remove("is-active");
+  };
+
+  sunTrack.addEventListener("pointerdown", (event) => {
+    if (window.innerWidth > 980) {
+      return;
+    }
+
+    isSunDragging = true;
+    sunScrubber.classList.add("is-active");
+    sunTrack.setPointerCapture?.(event.pointerId);
+    event.preventDefault();
+    scrubScrollToClientX(event.clientX);
+  });
+
+  window.addEventListener("pointermove", (event) => {
+    if (!isSunDragging) {
+      return;
+    }
+
+    event.preventDefault();
+    scrubScrollToClientX(event.clientX);
+  });
+
+  window.addEventListener("pointerup", endSunDrag);
+  window.addEventListener("pointercancel", endSunDrag);
+};
+
 let progressRafId = null;
 
 const requestProgressFillUpdate = () => {
+  updateProgressFill();
+  updateActiveNavByViewport();
+  updateSunScrubber();
+
+  if (typeof requestAnimationFrame !== "function") {
+    return;
+  }
+
   if (progressRafId) {
     return;
   }
@@ -219,7 +407,40 @@ const requestProgressFillUpdate = () => {
   progressRafId = requestAnimationFrame(() => {
     progressRafId = null;
     updateProgressFill();
+    updateActiveNavByViewport();
+    updateSunScrubber();
   });
+};
+
+let lastSyncedScrollTop = -1;
+let lastSyncedHash = "";
+
+const syncProgressState = () => {
+  const scroller = document.scrollingElement || document.documentElement;
+  const scrollTop = scroller?.scrollTop || window.scrollY || window.pageYOffset || 0;
+  const hash = window.location.hash;
+
+  if (scrollTop === lastSyncedScrollTop && hash === lastSyncedHash) {
+    return;
+  }
+
+  lastSyncedScrollTop = scrollTop;
+  lastSyncedHash = hash;
+  requestProgressFillUpdate();
+};
+
+const startProgressSyncLoop = () => {
+  if (typeof requestAnimationFrame !== "function") {
+    window.setInterval(syncProgressState, 180);
+    return;
+  }
+
+  const tick = () => {
+    syncProgressState();
+    requestAnimationFrame(tick);
+  };
+
+  requestAnimationFrame(tick);
 };
 
 const sectionObserver = new IntersectionObserver(
@@ -260,6 +481,9 @@ if (mobileProgressToggle && mobileProgressMenu) {
   });
 }
 
+syncProgressNavMode();
+setupSunScrubber();
+
 if (demoToggle) {
   const params = new URLSearchParams(window.location.search);
   const demoFromUrl = params.get("demo") === "1";
@@ -290,7 +514,10 @@ if (demoToggle) {
 }
 
 window.addEventListener("scroll", requestProgressFillUpdate, { passive: true });
-window.addEventListener("resize", requestProgressFillUpdate);
+window.addEventListener("resize", () => {
+  syncProgressNavMode();
+  requestProgressFillUpdate();
+});
 window.addEventListener("hashchange", () => {
   const hashId = window.location.hash.replace("#", "");
   if (hashId) {
@@ -301,6 +528,7 @@ window.addEventListener("hashchange", () => {
 });
 
 requestProgressFillUpdate();
+startProgressSyncLoop();
 
 const initialHashId = window.location.hash.replace("#", "");
 if (initialHashId) {

@@ -260,6 +260,119 @@ canvas {
   padding: 10px;
 }
 
+/* Mobile progress UI is intentionally disabled project-wide. */
+.mobile-progress-toggle,
+.mobile-progress-menu {
+  display: none !important;
+}
+
+.mobile-progress-menu[hidden] {
+  display: none !important;
+}
+
+body.compact-progress-nav .section-progress {
+  display: none !important;
+}
+
+body:not(.compact-progress-nav) .mobile-progress-toggle,
+body:not(.compact-progress-nav) .mobile-progress-menu {
+  display: none !important;
+}
+
+.sun-scrubber {
+  position: fixed;
+  left: 50%;
+  bottom: max(8px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 34;
+  width: 252px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sun-section-label {
+  margin: 9px 0 0;
+  text-align: center;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--lemon-accent);
+  text-shadow: 0 0 8px rgba(255, 228, 92, 0.35);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.sun-track {
+  --sun-progress: 0;
+  position: relative;
+  width: 252px;
+  height: 122px;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.sun-arc {
+  position: absolute;
+  inset: 0;
+  border-top-left-radius: 252px 122px;
+  border-top-right-radius: 252px 122px;
+  border: 1px solid rgba(143, 255, 84, 0.42);
+  border-bottom: 0;
+  background:
+    linear-gradient(180deg, rgba(143, 255, 84, 0.2), rgba(143, 255, 84, 0.03) 72%),
+    radial-gradient(circle at 50% 100%, rgba(255, 228, 92, 0.26), rgba(255, 228, 92, 0));
+  box-shadow: inset 0 0 0 1px rgba(143, 255, 84, 0.16), 0 0 18px rgba(143, 255, 84, 0.16);
+}
+
+.sun-handle {
+  position: absolute;
+  inset: 0;
+  width: 31px;
+  height: 23px;
+  border-radius: 56% 44% 52% 48% / 50% 54% 46% 50%;
+  border: 1px solid rgba(255, 228, 92, 0.74);
+  background:
+    radial-gradient(circle at 24% 34%, rgba(255, 253, 215, 0.92), rgba(255, 253, 215, 0) 44%),
+    linear-gradient(130deg, #fff27d 4%, #ffe45c 40%, #f5d93a 100%);
+  box-shadow: 0 0 0 2px rgba(255, 228, 92, 0.2), 0 0 22px rgba(255, 228, 92, 0.5);
+  offset-path: path("M 14 112 Q 126 2 238 112");
+  offset-distance: calc(var(--sun-progress) * 100%);
+  pointer-events: none;
+}
+
+.sun-handle::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  width: 9px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 240, 0.62);
+}
+
+.sun-handle::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 4px;
+  width: 8px;
+  height: 5px;
+  border-radius: 100% 0 100% 0;
+  background: linear-gradient(135deg, #9eff7a, #56de62);
+  transform: rotate(-22deg);
+  box-shadow: 0 0 7px rgba(90, 236, 112, 0.42);
+}
+
+.sun-scrubber.is-active .sun-section-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .mobile-progress-link {
   text-decoration: none;
   color: var(--text);
@@ -1367,13 +1480,14 @@ body.demo-mode .panel {
 
 @media (max-width: 980px) {
   .section-progress,
-  .scroll-nav {
-    display: none !important;
-  }
-
+  .scroll-nav,
   .mobile-progress-toggle,
   .mobile-progress-menu {
     display: none !important;
+  }
+
+  .sun-scrubber {
+    display: block;
   }
 
   .split,
@@ -1521,6 +1635,16 @@ body.demo-mode .panel {
 
   .converge-arrows {
     gap: 16%;
+  }
+
+  .sun-scrubber {
+    width: min(252px, calc(100vw - 18px));
+  }
+}
+
+@media (min-width: 981px) {
+  .sun-scrubber {
+    display: none !important;
   }
 }
 
