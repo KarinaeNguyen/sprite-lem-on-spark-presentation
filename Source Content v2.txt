@@ -1,0 +1,426 @@
+SPRITE "LEM 'ON SPARK!" - SLIDE-BY-SLIDE CONTENT BLUEPRINT
+
+Target Platform: Single-page scrolling presentation (HTML/Tailwind CSS).
+Design Instruction for AI: Treat each H2 section as a distinct, full-screen slide (min-h-screen, snap scrolling). Ensure text matches the provided copy exactly. Follow the specific micro-instructions for data visualization.
+
+SLIDE 1: TITLE SLIDE
+
+Micro-Instructions: Center-aligned, bold, energetic design. Sprite Green gradient background.
+Copy to Insert:
+
+SPRITE "LEM 'ON SPARK!" CAMPAIGN
+
+SPRITE VIETNAM 2026
+
+EXECUTIVE STRATEGIC SUMMARY
+
+VIETNAM MARKET
+
+"ĐÁNH THỨC GIÁC QUAN, THĂNG HOA HƯƠNG VỊ"
+
+SLIDE 2: THỊ TRƯỜNG & ĐỐI THỦ (PORTER'S 5 FORCES)
+
+Micro-Instructions: Split layout. Left side: 5 bullet points analyzing Porter's 5 Forces + 1 Strategic takeaway. Right side: A Market Share Pie/Donut Chart and its corresponding Data Table.
+Data Table to Render:
+
+Thương hiệu (Brand)
+
+Thị phần ước tính (%)
+
+Phân loại
+
+7Up (Suntory PepsiCo)
+
+45%
+
+Đối thủ thống trị
+
+Sprite (Coca-Cola)
+
+30%
+
+Kẻ thách thức (Challenger)
+
+Mountain Dew / Mirinda Vị Chanh
+
+15%
+
+Cạnh tranh gián tiếp
+
+Schweppes & Các hãng khác
+
+10%
+
+Phân khúc ngách / Pha chế
+
+Copy to Insert:
+
+Title: THỊ TRƯỜNG & ĐỐI THỦ (MARKET LANDSCAPE)
+
+Cạnh tranh nội khối (Rivalry - CAO): 7Up (chiếm 45%) đang thống trị vỉa hè nhờ chiến lược địa phương hóa bám sát khẩu vị truyền thống (7-Up Soda Chanh). Sprite buộc phải giành lại thị phần bằng cách định vị một trải nghiệm cảm xúc bùng nổ mà 7Up chưa làm được.
+
+Sản phẩm thay thế (Substitutes - CAO): Xu hướng bảo vệ sức khỏe và rủi ro thuế đường thúc đẩy khách hàng chuyển mạnh sang trà tươi, kombucha.
+
+Quyền lực khách hàng (Buyer Power - CAO): Gen Z có vô vàn sự lựa chọn giải khát, đòi hỏi cao về trải nghiệm cảm xúc và tính nguyên bản (authentic) của sản phẩm.
+
+Đối thủ tiềm ẩn (New Entrants - TRUNG BÌNH): Rào cản quy mô phân phối cao, nhưng các local brand ngách đang dần xuất hiện thông qua Food Apps.
+
+Quyền lực nhà cung cấp (Supplier Power - THẤP): Sprite sở hữu lợi thế kinh tế nhờ quy mô khổng lồ từ Coca-Cola.
+
+Phản ứng chiến lược: Đối đầu trực diện với 7Up. Gắn kết Sprite với khoảnh khắc ẩm thực đường phố, dùng hương chanh tự nhiên để phá vỡ vị ngấy mỡ.
+
+SLIDE 3: BRAND POSITION MAP
+
+Micro-Instructions: Split layout. Left side: The bullet points mapping the strategic shift. Right side: A Scatter chart (Perceptual Map) and its corresponding Data Table below it.
+Chart Data Instructions:
+
+X-Axis: Lượng Đường (-10: Không đường đến 10: Nhiều đường).
+
+Y-Axis: Cảm nhận hương vị (-10: Nhân tạo/Đậm mùi đến 10: Tự nhiên/Thanh mát).
+
+Data Table to Render:
+
+Thương hiệu (Brand)
+
+Trục X (Đường)
+
+Trục Y (Tự Nhiên)
+
+Phân loại
+
+Sprite (Định vị mới "Spark")
+
+4
+
+9
+
+Mục tiêu chiến lược
+
+Sprite (Hiện tại)
+
+6
+
+5
+
+Nội bộ
+
+7Up (Truyền thống)
+
+7
+
+4
+
+Đối thủ trực tiếp
+
+Mirinda Vị Chanh
+
+9
+
+-6
+
+Đối thủ gián tiếp
+
+Schweppes Soda Chanh
+
+-4
+
+8
+
+Phân khúc pha chế
+
+Copy to Insert:
+
+Title: BRAND POSITION MAP
+
+Thị trường nước giải khát Việt Nam cạnh tranh gay gắt. Khách hàng đang chuyển dịch khẩu vị sang các sản phẩm mang lại cảm giác thanh mát, tự nhiên.
+
+Phản ứng chiến lược: Tái định vị Sprite là "Chất thanh lọc vị giác" (Palate Cleanser) tự nhiên nhất trên bàn ăn vỉa hè.
+
+Cơ hội: Chiếm lĩnh trục "Tự nhiên/Thanh mát", đánh bật 7Up khỏi thói quen tiêu dùng.
+
+SLIDE 4: THỰC TẾ THƯƠNG HIỆU & ĐỘNG LỰC TIÊU DÙNG
+
+Micro-Instructions: 4-pillar card layout with bold icons. Focus on empirical proofs.
+Copy to Insert:
+
+Title: THỰC TẾ THƯƠNG HIỆU & ĐỘNG LỰC TIÊU DÙNG (BRAND REALITY)
+
+Di sản Toàn cầu (Heritage): Bảo chứng từ The Coca-Cola Company tạo niềm tin vững chắc về một thương hiệu nguyên bản từ Mỹ.
+
+Lợi thế Kênh Hiện đại (Modern Trade Dominance): Phủ sóng tuyệt đối tại các chuỗi tiện lợi (Circle K), rạp chiếu phim (CGV). Tuy nhiên, cơ hội lớn nhất nằm ở kênh truyền thống: chiến dịch này là mũi nhọn đưa Sprite xâm nhập 100,000+ xe đẩy vỉa hè – nơi 7Up đang tạm chiếm ưu thế.
+
+Chiến lược Định giá (Price): Mức giá tối ưu (~10.000 VNĐ/lon), biến Sprite thành lựa chọn "cắt ngấy" rẻ và hiệu quả nhất cho mọi bữa ăn.
+
+Độ phủ Truyền thông (Omnichannel Ads): Liên tục duy trì "Top of Mind" qua TVC, Billboard OOH, và quảng cáo xe buýt, minh chứng tiềm lực tài chính áp đảo.
+
+SLIDE 5: CUSTOMER 6W MODEL
+
+Micro-Instructions: 6 grid cards (3x2 layout). Emphasize "Identity Shifters" (Wibu/Cosplay).
+Copy to Insert:
+
+Title: MÔ HÌNH HÀNH VI KHÁCH HÀNG 6W (CUSTOMER 6W MODEL)
+
+WHO (W1): Gen Z & Millennials (18-27 tuổi). Là những "Identity Shifters" - có thể là sinh viên hướng nội ban ngày, nhưng khao khát bung xõa cá tính ngầm (Wibu, Cosplay) nếu có không gian an toàn.
+
+WHAT (W2): Cần một chất xúc tác cắt ngang cảm giác lờ đờ vì ngấy mỡ, F5 tinh thần để bùng nổ (Spark!).
+
+WHERE (W3): Tại xe đẩy vỉa hè, và qua order "Combo món ăn + Nước" trên Food Apps.
+
+WHEN (W4): Bữa tối, ăn đêm cùng bạn bè. Dịp lễ hội đường phố muốn diện đồ đẹp.
+
+WHY (W5): Thông điệp "Spark!" của Sprite truyền cảm hứng để họ "Dress up Sparking" - rũ bỏ sự rụt rè, khoe trọn cá tính.
+
+WHY NOT (W6): E ngại lượng đường/calo; hoặc uống 7Up theo thói quen địa phương.
+
+SLIDE 6: CUSTOMER VALUE PROPOSITION
+
+Micro-Instructions: Split layout (Pain/Gain vs Pain Relievers/Gain Creators).
+Copy to Insert:
+
+Title: CUSTOMER VALUE PROPOSITION (CVP)
+
+Subtitle: Heavy Food = Heavy Mood. Sprite giải phóng sự nặng nề.
+
+CUSTOMER PROFILE (Hồ sơ khách hàng):
+
+Pains: Cảm giác ngấy mỡ, lờ đờ ("Food Coma"). Thiếu sân chơi an toàn, văn minh để được mặc trang phục rực rỡ (Cosplay) mà không bị phán xét.
+
+Gains: Khát khao trạng thái tinh thần sảng khoái. Tìm cớ hoàn hảo để khoe trọn cá tính (Multiple Identities).
+
+VALUE MAP (Bản đồ giá trị):
+
+Pain Relievers: Hương chanh sảng khoái "cắt ngang" vị béo. Cung cấp không gian "Coca-Cola World" tại đô thị sạch sẽ để xóa bỏ rào cản e ngại.
+
+Gain Creators: Thổi bùng (Spark) năng lượng tích cực, tôn vinh sự khác biệt để Gen Z tự tin "Dress up Sparking".
+
+SLIDE 7: CHIẾN DỊCH TỔNG QUAN & SỰ TỔNG HÒA Ý TƯỞNG (SYNTHESIS)
+
+Micro-Instructions: Bold typography transitioning Insight -> Idea.
+Copy to Insert:
+
+Title: TỪ INSIGHT ĐẾN Ý TƯỞNG: "LEM 'ON SPARK!"
+
+Sự thật ngầm hiểu (Core Insight): Đồ ăn vỉa hè ngon nhưng dầu mỡ làm Gen Z lờ đờ (Heavy Food = Heavy Mood). Họ cần một cú hích để rũ bỏ sự nặng nề, đánh thức bản ngã rực rỡ bên trong (Wibu/Cosplay).
+
+Ý TƯỞNG LỚN (BIG IDEA): LEM 'ON SPARK! - ĐÁNH THỨC HƯƠNG VỊ, BỨT PHÁ BẢN NGÃ
+
+The Ogilvy "Big Idea" Validation:
+
+Brilliantly simple, simply brilliant: Một ngụm Sprite cắt ngang vị ngấy, chuyển hóa (Transition) người dùng để họ "Dress up Sparking".
+
+Does it fit the strategy? Yes. Kêt nối mượt mà giữa tính năng "Cắt ngấy" (Functional) và yếu tố văn hóa "Bứt phá bản ngã" (Emotional).
+
+SLIDE 8: HÀNH TRÌNH KHÁCH HÀNG & CHIẾN LƯỢC LỊCH TRÌNH (MEDIA SCHEDULING)
+
+Micro-Instructions: 3-step horizontal timeline block.
+Copy to Insert:
+
+Title: HÀNH TRÌNH KHÁCH HÀNG (3-MONTH PULSING TIMELINE)
+
+PHASE 1: AWARENESS (Tháng 1 - Tháng 2): Phủ Micro-advertisements trên báo điện tử, Google Ads nhắm mục tiêu từ khóa Wibu/Cosplay/Ẩm thực. Teasing về một sự kiện "Dress up Sparking" chấn động.
+
+PHASE 2: CONSIDERATION (Đầu Tháng 3): Gọng kìm B2B - B2C. Tung "Combo Spark" trợ giá trên GrabFood/ShopeeFood (Tặng vé VIP sự kiện). TikTok bùng nổ trend biến hình AR Filter.
+
+PHASE 3: ADVOCACY & THE CLIMAX (3 Ngày cuối): Siêu sự kiện "Coca-Cola World" tại The Global City/Sala - "Nâng tầm Ẩm thực Đường phố Tân Thời". Gen Z tự do, an toàn diện đồ Cosplay bùng nổ cá tính.
+
+SLIDE 9: PERSONAS
+
+Micro-Instructions: Persona profile card. Emphasize "Introvert to Spark" transition.
+Copy to Insert:
+
+Title: PERSONAS: THE IDENTITY SHIFTER
+
+Name: HÀ MY, Sinh viên Đại học / Age: 20
+
+Lifestyle: Khá khép kín (Introvert) ban ngày, nhưng là một "Wibu" ngầm đam mê Cosplay.
+
+The Journey: Thấy quảng cáo (Micro-Ads) khi đọc tin tức thành phố -> Tìm hiểu sự kiện -> Rủ bạn order Combo GrabFood lấy vé VIP.
+
+Quote: "Bình thường mình rất lười ra vỉa hè vì sợ ồn ào. Nhưng thấy Coca-Cola World ở Sala sạch sẽ... đây là không gian an toàn hoàn hảo để mình rũ bỏ sự rụt rè, 'Dress up Sparking' bùng nổ với bộ đồ cosplay yêu thích!"
+
+SLIDE 10: 3C MARKETING STRATEGY
+
+Micro-Instructions: 3 overlapping circles (Customer, Company, Competitor).
+Copy to Insert:
+
+Title: 3C MARKETING STRATEGY
+
+Customer: Khao khát ăn đồ vỉa hè nhưng đòi hỏi không gian văn minh (Sala) để tự do bộc lộ cá tính ngầm (Dress up Sparking).
+
+Company (Sprite): Nâng uy tín thương hiệu bằng cách đóng vai trò là người bảo trợ, làm sạch và văn minh hóa văn hóa đường phố Việt Nam.
+
+Competitors (7Up): Có tiền làm event, nhưng quá an toàn và chưa liên kết được với tiểu văn hóa Gen Z.
+
+Strategic Intersection: Lợi thế người tiên phong (First-Mover Advantage). Kẻ đi trước thiết lập tiêu chuẩn sẽ chiếm giữ "Marketing Stand" độc tôn.
+
+SLIDE 11: CHIẾN LƯỢC LAN TỎA KÉP (B2C & B2B VIRAL STRATEGY)
+
+Micro-Instructions: Split layout showing the Push and Pull strategy.
+Copy to Insert:
+
+Title: HỆ SINH THÁI VIRAL B2C & BÀI TOÁN ÉP CUNG B2B
+
+B2C (Mồi lửa Truyền thông): Báo chí đưa tin về sứ mệnh "Nâng tầm ẩm thực". Hàng loạt Paid KOCs/KOLs đổ bộ vỉa hè quay video "Dress up Sparking" tạo bão FOMO.
+
+B2B (Thế gọng kìm "Ép Cung"):
+
+Sức ép từ App (Pull Strategy): Tung Combo GrabFood siêu rẻ. Các chủ xe đẩy bắt buộc phải nhập Sprite để đáp ứng lượng đơn online khổng lồ từ Gen Z.
+
+Chuyển đổi thói quen Vendor: Khi đã nhập hàng, đội ngũ Sales ập tới tài trợ bạt, dù, biển hiệu mang màu Xanh-Vàng của Sprite & Lọ Lem, hất cẳng 7Up khỏi tầm nhìn tại điểm bán.
+
+SLIDE 12: SWOT SYNTHESIS
+
+Micro-Instructions: 2x2 Grid.
+Copy to Insert:
+
+Title: SWOT SYNTHESIS (DỰA TRÊN PORTER'S 5 FORCES)
+
+STRENGTHS: Khả năng tích hợp hệ sinh thái Digital xuống Offline. Năng lực tài chính khủng để thâu tóm POSM vỉa hè.
+
+WEAKNESSES: Hương vị ngọt gắt hơn 7Up khi ăn kèm đồ nhiều dầu mỡ (nếu uống không đá).
+
+OPPORTUNITIES: Việc tổ chức tại khu đô thị mới (Sala/Global City) giải quyết rủi ro an ninh, xin phép chính quyền, mang lại không gian "Nâng tầm đường phố" an toàn cho Gen Z.
+
+THREATS: 7Up thống trị tuyệt đối tại vỉa hè. Rủi ro thời tiết khi làm event ngoài trời.
+
+SLIDE 13: ADVERTISEMENT CAMPAIGN SUMMARY
+
+Micro-Instructions: Clean visual dashboard summarizing the strategy. Add a standout box for the Brand Ambassador.
+Copy to Insert:
+
+Title: ADVERTISEMENT CAMPAIGN SUMMARY
+
+OBJECTIVE: Break 7Up's street monopoly via App combos. Elevate street culture and connect functional refreshment with Gen Z identity shifting.
+
+BIG IDEA: LEM 'ON SPARK! - Thanh lọc vị giác, bứt phá bản ngã.
+
+BRAND AMBASSADOR: LỌ LEM (Mai Thảo Linh).
+
+Hình tượng trong trẻo, tự nhiên cực khớp với Sprite. "Lọ Lem chọn Lem 'On Spark!". Dành riêng cho bảng quảng cáo OOH (Billboard) để tạo độ phủ đại chúng (Mass Awareness) với chi phí tối ưu.
+
+TONE OF VOICE (TOV): BOLD - REFRESHING - UNAPOLOGETIC (Táo bạo - Sảng khoái - Không e dè).
+
+SLIDE 14: CAMPAIGN BUDGET ESTIMATION
+
+Micro-Instructions: Visual Dashboard layout. Render a Donut Chart on the left using the data table. On the right, display 4 stylized colored blocks detailing the spend (matching the chart colors).
+Data Table to Render (Donut Chart):
+
+Hạng mục chi tiêu
+
+Tỷ lệ (%)
+
+Experiential (Sự kiện HCM)
+
+35%
+
+Trade & Food Apps (B2B)
+
+25%
+
+KOLs/KOCs & Ambassador
+
+20%
+
+Media & PR
+
+15%
+
+Others/Contingency
+
+5%
+
+Copy to Insert (Budget Blocks):
+
+Title: TỔNG NGÂN SÁCH (TOTAL BUDGET): 10 BILLION VND
+
+35% - EXPERIENTIAL MARKETING: Trải nghiệm khách hàng cốt lõi. Chi phí bùng nổ cho 3 ngày "Coca-Cola World" tại Sala/Global City.
+
+25% - TRADE MARKETING & FOOD APPS: Vũ khí B2B. Trợ giá Combo GrabFood, tài trợ dù bạt POSM ép vendors nhập hàng.
+
+20% - KOLs/KOCs & BRAND AMBASSADOR: Mũi nhọn bứt phá. Paid KOLs tạo bão TikTok "Dress up Sparking" và thù lao cho Đại sứ Lọ Lem trên Billboard OOH.
+
+15% - DIGITAL PAID MEDIA: Google GDN, Bumper Ads, PR báo chí.
+
+SLIDE 15: METRICS & KEY SUCCESS INDICATORS (KPIs)
+
+Micro-Instructions: Visual "Marketing Funnel" layout. Top layer (widest): Awareness. Middle layer: Consideration. Bottom layer: Advocacy. Feature a large "Hero Stats" banner at the very top.
+Copy to Insert:
+
+Title: METRICS & KEY SUCCESS INDICATORS
+
+HERO STATS:
+
+TOTAL REACH: 20M+
+
+EVENT PAX: 15,000+
+
+ROAS: 3.0+
+
+[FUNNEL LEVEL 1] AWARENESS:
+
+Reach: 15 Triệu người
+
+Display Impressions: 25 Triệu
+
+Lượt xem bài PR: 2 Triệu+
+
+[FUNNEL LEVEL 2] CONSIDERATION (Kích Sale):
+
+Lượt truy cập Food App: 1 Triệu+
+
+Bán ra (Combo Sales): 150.000+ lượt
+
+KOC Viral Videos: 500+ Clips
+
+[FUNNEL LEVEL 3] ADVOCACY (Sự kiện & Lan tỏa):
+
+Tham gia Offline (Sala): 15.000+ người
+
+UGC Content (Dress up Sparking): 20.000+ bài post
+
+SLIDE 16: CREATIVE & ADVERTISING EXECUTION
+
+Micro-Instructions: A 3-column "Mockup Grid" or visual card layout representing the Media Ecosystem (Video, Mobile, Billboard). Emphasize "Context is God".
+Copy to Insert:
+
+Title: CREATIVE STRATEGY: CONTEXT IS GOD
+
+THINK-FEEL-DO: (THINK) Sprite cắt đứt vị ngấy -> (FEEL) An toàn để bộc lộ bản ngã -> (DO) Đặt Combo App, Quay TikTok, Săn vé Event.
+
+PLATFORM ECOSYSTEM:
+
+CỘT 1: YouTube (Pastime Context): Bumper ads 6s. Âm thanh ASMR bọt ga xì xèo cắt ngang tiếng xèo xèo thịt nướng. Đánh vào nhu cầu giải trí, thư giãn nhanh (Think).
+
+CỘT 2: TikTok / Reels (Identity Context): Nơi KOCs khởi tạo trào lưu biến hình AR Filter "Spark Your Style". Từ sinh viên xuề xòa thành Cosplayer lộng lẫy (Feel & Do).
+
+CỘT 3: Out-of-Home (Trust Context): Billboard khổng lồ với Đại sứ Lọ Lem: "Lọ Lem chọn Lem 'On Spark!". Khẳng định đẳng cấp, uy tín tại các nút giao thông lớn.
+
+SLIDE 17: MEDIA MIX & SCHEDULING (PULSING STRATEGY)
+
+Micro-Instructions: Venn diagram layout for Owned/Earned/Paid.
+Copy to Insert:
+
+Title: MEDIA MIX & SCHEDULING (PULSING)
+
+Chiến lược Đánh úp (Pulsing): Duy trì nền tảng liên tục, nhưng dồn hỏa lực vào Tháng 3 qua KOCs và Food Apps để ép Sales và kích FOMO trước sự kiện.
+
+O-E-P FRAMEWORK:
+
+PAID (Vũ khí chủ lực): KOCs TikTok, Trợ giá Combo GrabFood, Billboard Lọ Lem.
+
+OWNED (Chiếm lĩnh điểm bán): Tấn công vật lý bằng POSM Sprite tại 100k+ xe đẩy vỉa hè.
+
+EARNED (Bão truyền thông): UGC từ Gen Z "Dress up Sparking" và Báo đài ca ngợi việc nâng tầm ẩm thực đường phố.
+
+SLIDE 18: THANK YOU
+
+Micro-Instructions: Minimalist closing slide.
+Copy to Insert:
+
+Title: THANK YOU
+
+"Đánh thức giác quan, bứt phá bản ngã"
+
+Sprite "Lem 'On Spark!" Campaign | Vietnam Market 2026
+
+contact@sprite-vietnam.com

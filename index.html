@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="patch-viz.css" />
   </head>
   <body>
     <div class="ambient-bg" aria-hidden="true"></div>
@@ -23,8 +24,24 @@
 
     <header class="topbar">
       <a class="brand" href="#slide-1">SPRITE "LEM 'ON SPARK!"</a>
-      <a class="top-cta" href="#slide-16">THANK YOU</a>
+      <a class="top-cta" href="#slide-18">THANK YOU</a>
     </header>
+
+    <aside class="section-progress" aria-label="Section progress navigation">
+      <div class="progress-track" aria-hidden="true">
+        <span class="progress-fill" id="progress-fill"></span>
+      </div>
+      <nav class="progress-links" aria-label="Main sections">
+        <a class="progress-link is-active" href="#slide-1"><span class="progress-dot" aria-hidden="true"></span><span class="progress-text">Intro</span></a>
+        <a class="progress-link" href="#slide-2"><span class="progress-dot" aria-hidden="true"></span><span class="progress-text">Market</span></a>
+        <a class="progress-link" href="#slide-3"><span class="progress-dot" aria-hidden="true"></span><span class="progress-text">Positioning</span></a>
+        <a class="progress-link" href="#slide-8"><span class="progress-dot" aria-hidden="true"></span><span class="progress-text">Journey</span></a>
+        <a class="progress-link" href="#slide-11"><span class="progress-dot" aria-hidden="true"></span><span class="progress-text">Viral Strategy</span></a>
+        <a class="progress-link" href="#slide-14"><span class="progress-dot" aria-hidden="true"></span><span class="progress-text">Budget</span></a>
+        <a class="progress-link" href="#slide-16"><span class="progress-dot" aria-hidden="true"></span><span class="progress-text">Creative</span></a>
+        <a class="progress-link" href="#slide-18"><span class="progress-dot" aria-hidden="true"></span><span class="progress-text">Thank You</span></a>
+      </nav>
+    </aside>
 
     <main>
       <section id="slide-1" class="panel hero">
@@ -54,11 +71,11 @@
             <div class="force-grid">
               <article class="glass-card reveal compact-card">
                 <h3>Cạnh tranh nội khối (Rivalry - CAO)</h3>
-                <p>Cuộc chiến thị phần khốc liệt với 7Up (chiếm 45%) giành vị thế dẫn đầu phân khúc chanh soda.</p>
+                <p>7Up (chiếm 45%) đang thống trị vỉa hè nhờ chiến lược địa phương hóa bám sát khẩu vị truyền thống (7-Up Soda Chanh). Sprite buộc phải giành lại thị phần bằng cách định vị một trải nghiệm cảm xúc bùng nổ mà 7Up chưa làm được.</p>
               </article>
               <article class="glass-card reveal compact-card">
                 <h3>Sản phẩm thay thế (Substitutes - CAO)</h3>
-                <p>Xu hướng bảo vệ sức khỏe và rủi ro thuế đường thúc đẩy khách hàng chuyển mạnh sang trà tươi, kombucha và nước có gas tự nhiên.</p>
+                <p>Xu hướng bảo vệ sức khỏe và rủi ro thuế đường thúc đẩy khách hàng chuyển mạnh sang trà tươi, kombucha.</p>
               </article>
               <article class="glass-card reveal compact-card">
                 <h3>Quyền lực khách hàng (Buyer Power - CAO)</h3>
@@ -66,23 +83,21 @@
               </article>
               <article class="glass-card reveal compact-card">
                 <h3>Đối thủ tiềm ẩn (New Entrants - TRUNG BÌNH)</h3>
-                <p>Rào cản quy mô phân phối cao, nhưng các local brand ngách đang dần xuất hiện thông qua các nền tảng giao đồ ăn.</p>
+                <p>Rào cản quy mô phân phối cao, nhưng các local brand ngách đang dần xuất hiện thông qua Food Apps.</p>
               </article>
               <article class="glass-card reveal compact-card">
                 <h3>Quyền lực nhà cung cấp (Supplier Power - THẤP)</h3>
-                <p>Sprite sở hữu lợi thế kinh tế nhờ quy mô khổng lồ và chuỗi cung ứng toàn cầu vững chắc từ Coca-Cola.</p>
+                <p>Sprite sở hữu lợi thế kinh tế nhờ quy mô khổng lồ từ Coca-Cola.</p>
               </article>
             </div>
             <article class="glass-card reveal strategic-wide">
               <h3>Phản ứng chiến lược</h3>
-              <p>Gắn kết Sprite với khoảnh khắc ẩm thực vỉa hè, định vị "hương chanh tự nhiên" để chống lại làn sóng sản phẩm thay thế và phá thế độc tôn của 7Up.</p>
+              <p>Đối đầu trực diện với 7Up. Gắn kết Sprite với khoảnh khắc ẩm thực đường phố, dùng hương chanh tự nhiên để phá vỡ vị ngấy mỡ.</p>
             </article>
           </div>
           <article class="glass-card reveal chart-animate" id="market-share-chart">
             <h3>Market Share Pie / Donut Chart</h3>
-            <div class="donut-wrap">
-              <div class="donut"></div>
-            </div>
+            <canvas id="market-share-canvas" class="viz-patch-canvas" aria-label="Market share donut chart"></canvas>
             <table class="data-table">
               <thead>
                 <tr>
@@ -92,7 +107,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td>7Up (Suntory PepsiCo)</td><td>45%</td><td>Đối thủ dẫn đầu</td></tr>
+                <tr><td>7Up (Suntory PepsiCo)</td><td>45%</td><td>Đối thủ thống trị</td></tr>
                 <tr><td>Sprite (Coca-Cola)</td><td>30%</td><td>Kẻ thách thức (Challenger)</td></tr>
                 <tr><td>Mountain Dew / Mirinda Vị Chanh</td><td>15%</td><td>Cạnh tranh gián tiếp</td></tr>
                 <tr><td>Schweppes & Các hãng khác</td><td>10%</td><td>Phân khúc ngách / Pha chế</td></tr>
@@ -109,42 +124,21 @@
           <div class="slide3-three reveal-group">
             <article class="glass-card reveal compact-card">
               <h3>Thị trường cạnh tranh</h3>
-              <p>Thị trường nước giải khát Việt Nam cạnh tranh gay gắt, đặc biệt với 7Up đối thủ trực tiếp trên phân khúc chanh soda.</p>
-            </article>
-            <article class="glass-card reveal compact-card">
-              <h3>Xu hướng sức khỏe</h3>
-              <p>Xu hướng sức khỏe & thuế đường đang thúc đẩy người tiêu dùng chuyển sang trà tươi, kombucha và nước có ga tự nhiên.</p>
+              <p>Thị trường nước giải khát Việt Nam cạnh tranh gay gắt. Khách hàng đang chuyển dịch khẩu vị sang các sản phẩm mang lại cảm giác thanh mát, tự nhiên.</p>
             </article>
             <article class="glass-card reveal compact-card">
               <h3>Phản ứng chiến lược</h3>
-              <p>Gắn kết Sprite với khoảnh khắc ăn vặt đường phố – nhấn mạnh hương chanh tự nhiên để xóa bỏ cảm giác "nhân tạo".</p>
+              <p>Tái định vị Sprite là "Chất thanh lọc vị giác" (Palate Cleanser) tự nhiên nhất trên bàn ăn vỉa hè.</p>
+            </article>
+            <article class="glass-card reveal compact-card">
+              <h3>Cơ hội</h3>
+              <p>Chiếm lĩnh trục "Tự nhiên/Thanh mát", đánh bật 7Up khỏi thói quen tiêu dùng.</p>
             </article>
           </div>
-          <article class="glass-card reveal horizontal-opportunity">
-            <h3>Cơ hội</h3>
-            <p>Sprite là lựa chọn thanh lọc vị giác số 1 trong văn hóa ẩm thực vỉa hè Việt Nam.</p>
-          </article>
           <article class="glass-card reveal chart-animate" id="position-map">
             <h3>Perceptual Map</h3>
-            <p class="lead compact">Chart Label: Định vị Thương hiệu Nước chanh có gas tại Việt Nam (Perceptual Map).</p>
-            <svg class="scatter-chart" viewBox="0 0 520 320" aria-label="Perceptual map scatter chart">
-              <line x1="260" y1="20" x2="260" y2="290" class="axis" />
-              <line x1="30" y1="155" x2="495" y2="155" class="axis" />
-              <text x="20" y="150" class="axis-label">-10</text>
-              <text x="498" y="150" class="axis-label">10</text>
-              <text x="250" y="306" class="axis-label">Lượng Đường</text>
-              <text x="6" y="18" class="axis-label">Tự Nhiên</text>
-              <g class="scatter-points">
-                <circle cx="353" cy="34" r="7"></circle><text x="364" y="38">Sprite (Định vị mới "Spark")</text>
-                <circle cx="307" cy="98" r="7"></circle><text x="318" y="102">Sprite (Hiện tại)</text>
-                <circle cx="52" cy="84" r="7"></circle><text x="63" y="88">Sprite Không Đường</text>
-                <circle cx="330" cy="112" r="7"></circle><text x="341" y="116">7Up (Truyền thống)</text>
-                <circle cx="52" cy="126" r="7"></circle><text x="63" y="130">7Up Free</text>
-                <circle cx="468" cy="238" r="7"></circle><text x="327" y="255">Mirinda Vị Chanh</text>
-                <circle cx="445" cy="266" r="7"></circle><text x="308" y="283">Mountain Dew (Citrus)</text>
-                <circle cx="191" cy="48" r="7"></circle><text x="202" y="52">Schweppes Soda Chanh</text>
-              </g>
-            </svg>
+            <p class="lead compact">Định vị Thương hiệu Nước chanh có gas tại Việt Nam (Perceptual Map).</p>
+            <canvas id="position-map-canvas" class="viz-patch-canvas" aria-label="Perceptual map scatter chart"></canvas>
             <table class="data-table compact-table">
               <thead>
                 <tr><th>Thương hiệu (Brand)</th><th>Trục X (Đường)</th><th>Trục Y (Tự Nhiên)</th><th>Phân loại</th></tr>
@@ -152,62 +146,56 @@
               <tbody>
                 <tr><td>Sprite (Định vị mới "Spark")</td><td>4</td><td>9</td><td>Mục tiêu chiến lược</td></tr>
                 <tr><td>Sprite (Hiện tại)</td><td>6</td><td>5</td><td>Nội bộ</td></tr>
-                <tr><td>Sprite Không Đường</td><td>-9</td><td>6</td><td>Nội bộ</td></tr>
                 <tr><td>7Up (Truyền thống)</td><td>7</td><td>4</td><td>Đối thủ trực tiếp</td></tr>
-                <tr><td>7Up Free</td><td>-9</td><td>3</td><td>Đối thủ trực tiếp</td></tr>
                 <tr><td>Mirinda Vị Chanh</td><td>9</td><td>-6</td><td>Đối thủ gián tiếp</td></tr>
-                <tr><td>Mountain Dew (Citrus)</td><td>8</td><td>-8</td><td>Đối thủ gián tiếp</td></tr>
                 <tr><td>Schweppes Soda Chanh</td><td>-4</td><td>8</td><td>Phân khúc pha chế</td></tr>
               </tbody>
             </table>
+          </article>
         </div>
       </section>
 
       <section id="slide-4" class="panel">
         <p class="section-index reveal">SLIDE 4</p>
         <h2 class="section-title reveal">THỰC TẾ THƯƠNG HIỆU & ĐỘNG LỰC TIÊU DÙNG (BRAND REALITY)</h2>
-        <p class="lead reveal">Không chỉ là một thức uống giải khát, Sprite chinh phục Gen Z Việt Nam bằng những lợi thế cạnh tranh được chứng minh bằng dữ liệu và thực tiễn kinh doanh:</p>
         <div class="pillars-grid reveal-group">
-          <article class="pillar reveal"><h3>Di sản & Bảo chứng Toàn cầu (Heritage & Trust)</h3><p>Chứng minh bằng lịch sử tồn tại từ năm 1961 và hiện diện tại hơn 190 quốc gia. Dưới sự bảo chứng của The Coca-Cola Company, Sprite sở hữu quy trình kiểm soát chất lượng tuyệt đối, tạo niềm tin vững chắc cho người dùng về một thương hiệu nguyên bản từ Mỹ.</p></article>
-          <article class="pillar reveal"><h3>Độ phủ áp đảo (90%+ Numeric Distribution)</h3><p>Dữ liệu thực tế cho thấy sự hiện diện gần như tuyệt đối. Từ chuỗi siêu thị lớn, hàng ngàn cửa hàng tiện lợi (CVS như Circle K, FamilyMart), hệ thống F&B (CGV, Lotteria) cho đến hơn 100,000+ xe đẩy ẩm thực vỉa hè – Sprite luôn nằm trong tầm tay khách hàng mọi lúc, mọi nơi.</p></article>
-          <article class="pillar reveal"><h3>Chiến lược Định giá & Combo (Price Competitiveness)</h3><p>Năng lực chuỗi cung ứng khổng lồ giúp duy trì mức giá tối ưu (chỉ từ ~10.000 VNĐ/lon 320ml). Hơn thế, việc liên tục xuất hiện trong các "Combo siêu tiết kiệm" cùng đồ ăn trên nền tảng GrabFood/ShopeeFood giúp thúc đẩy khối lượng mua (basket size) khổng lồ mỗi ngày.</p></article>
-          <article class="pillar reveal"><h3>Hành vi & Độ phủ Truyền thông (Omnichannel Advertising)</h3><p>Đặc thù ngành nước giải khát đòi hỏi mức độ nhận diện "Top of Mind" liên tục để kích thích mua bốc đồng. Sprite chiếm lĩnh không gian truyền thông đại chúng bằng TVC khung giờ vàng, hệ thống Billboard tấm lớn tại các ngã tư trọng điểm, và quảng cáo di động trên xe buýt. Sự hiện diện vật lý này kết hợp với lượng thảo luận khổng lồ trên mạng xã hội tạo nên vị thế không thể lãng quên trong tâm trí khách hàng.</p></article>
+          <article class="pillar reveal"><h3>Di sản Toàn cầu (Heritage)</h3><p>Bảo chứng từ The Coca-Cola Company tạo niềm tin vững chắc về một thương hiệu nguyên bản từ Mỹ.</p></article>
+          <article class="pillar reveal"><h3>Lợi thế Kênh Hiện đại (Modern Trade Dominance)</h3><p>Phủ sóng tuyệt đối tại các chuỗi tiện lợi (Circle K), rạp chiếu phim (CGV). Tuy nhiên, cơ hội lớn nhất nằm ở kênh truyền thống: chiến dịch này là mũi nhọn đưa Sprite xâm nhập 100,000+ xe đẩy vỉa hè – nơi 7Up đang tạm chiếm ưu thế.</p></article>
+          <article class="pillar reveal"><h3>Chiến lược Định giá (Price)</h3><p>Mức giá tối ưu (~10.000 VNĐ/lon), biến Sprite thành lựa chọn "cắt ngấy" rẻ và hiệu quả nhất cho mọi bữa ăn.</p></article>
+          <article class="pillar reveal"><h3>Độ phủ Truyền thông (Omnichannel Ads)</h3><p>Liên tục duy trì "Top of Mind" qua TVC, Billboard OOH, và quảng cáo xe buýt, minh chứng tiềm lực tài chính áp đảo.</p></article>
         </div>
       </section>
 
       <section id="slide-5" class="panel">
         <p class="section-index reveal">SLIDE 5</p>
         <h2 class="section-title reveal">MÔ HÌNH HÀNH VI KHÁCH HÀNG 6W (CUSTOMER 6W MODEL)</h2>
-        <p class="lead reveal">Subtitle: SPRITE "LEM 'ON SPARK!" VIETNAM</p>
         <div class="pillars-grid reveal-group">
-          <article class="pillar reveal"><h3>WHO (W1)</h3><p>Gen Z & Millennials (18-27 tuổi) tại các đô thị lớn. Là những "foodie" chính hiệu, năng động, yêu thích văn hóa đường phố và có các "tiểu văn hóa" ngầm (như Wibu, Cosplay).</p></article>
-          <article class="pillar reveal"><h3>WHAT (W2)</h3><p>Sử dụng Sprite như một công cụ "thanh lọc vị giác" để cắt ngang cảm giác ngấy mỡ, đồng thời là chất xúc tác "F5" tinh thần để thỉnh thoảng tự tin bùng nổ (Spark!), thể hiện cá tính rạng rỡ của bản thân.</p></article>
-          <article class="pillar reveal"><h3>WHERE (W3)</h3><p>Xe đẩy ẩm thực vỉa hè, các cửa hàng tiện lợi (CVS như Circle K), và đặc biệt là thông qua các "Combo món ăn + Nước" trên nền tảng giao đồ ăn.</p></article>
-          <article class="pillar reveal"><h3>WHEN (W4)</h3><p>Trong và sau các bữa ăn xế, ăn tối, hoặc ăn đêm cùng bạn bè. Đặc biệt trong các dịp lễ hội, tụ tập đường phố nơi họ muốn diện đồ đẹp.</p></article>
-          <article class="pillar reveal"><h3>WHY (W5)</h3><p>Bị thuyết phục bởi hương chanh sảng khoái tự nhiên. Đặc biệt, thông điệp "Spark!" truyền cảm hứng để họ dám rũ bỏ sự rụt rè, tự tin tỏa sáng và "lên đồ" theo cách riêng.</p></article>
-          <article class="pillar reveal"><h3>WHY NOT (W6)</h3><p>E ngại lượng đường/calo cao so với trà đá truyền thống; xu hướng chuyển dịch sang các thức uống bảo vệ sức khỏe (kombucha, nước ép).</p></article>
+          <article class="pillar reveal"><h3>WHO (W1)</h3><p>Gen Z & Millennials (18-27 tuổi). Là những "Identity Shifters" - có thể là sinh viên hướng nội ban ngày, nhưng khao khát bung xõa cá tính ngầm (Wibu, Cosplay) nếu có không gian an toàn.</p></article>
+          <article class="pillar reveal"><h3>WHAT (W2)</h3><p>Cần một chất xúc tác cắt ngang cảm giác lờ đờ vì ngấy mỡ, F5 tinh thần để bùng nổ (Spark!).</p></article>
+          <article class="pillar reveal"><h3>WHERE (W3)</h3><p>Tại xe đẩy vỉa hè, và qua order "Combo món ăn + Nước" trên Food Apps.</p></article>
+          <article class="pillar reveal"><h3>WHEN (W4)</h3><p>Bữa tối, ăn đêm cùng bạn bè. Dịp lễ hội đường phố muốn diện đồ đẹp.</p></article>
+          <article class="pillar reveal"><h3>WHY (W5)</h3><p>Thông điệp "Spark!" của Sprite truyền cảm hứng để họ "Dress up Sparking" - rũ bỏ sự rụt rè, khoe trọn cá tính.</p></article>
+          <article class="pillar reveal"><h3>WHY NOT (W6)</h3><p>E ngại lượng đường/calo; hoặc uống 7Up theo thói quen địa phương.</p></article>
         </div>
       </section>
 
       <section id="slide-6" class="panel">
         <p class="section-index reveal">SLIDE 6</p>
         <h2 class="section-title reveal">CUSTOMER VALUE PROPOSITION (CVP)</h2>
-        <p class="lead reveal">Subtitle: Định vị giá trị của Sprite trong khoảnh khắc ẩm thực Gen Z</p>
+        <p class="lead reveal">Heavy Food = Heavy Mood. Sprite giải phóng sự nặng nề.</p>
         <div class="cvp-layout reveal-group">
           <article class="glass-card reveal">
             <h3>CUSTOMER PROFILE (Hồ sơ khách hàng)</h3>
             <ul class="bullet-list">
-              <li>Customer Jobs (Việc cần làm): Tìm kiếm thức uống giải khát mát lạnh khi ăn đồ đường phố. Tìm kiếm những dịp đặc biệt, những lễ hội cởi mở để "Dress up Sparking", bộc lộ cá tính ngầm (như phong cách Wibu, đường phố) cùng bạn bè.</li>
-              <li>Pains (Nỗi đau): Cảm giác ngấy mỡ, đầy hơi gây tụt năng lượng ("food coma") sau bữa ăn. Cảm thấy thiếu những sân chơi an toàn, cởi mở để được diện những trang phục rực rỡ, khác biệt mà không sợ bị phán xét.</li>
-              <li>Gains (Mong muốn): Khát khao cảm giác sảng khoái tức thì. Trạng thái tinh thần được "F5" để có đủ năng lượng và sự tự tin tỏa sáng, khoe trọn cá tính bản thân.</li>
+              <li>Pains: Cảm giác ngấy mỡ, lờ đờ ("Food Coma"). Thiếu sân chơi an toàn, văn minh để được mặc trang phục rực rỡ (Cosplay) mà không bị phán xét.</li>
+              <li>Gains: Khát khao trạng thái tinh thần sảng khoái. Tìm cớ hoàn hảo để khoe trọn cá tính (Multiple Identities).</li>
             </ul>
           </article>
           <article class="glass-card reveal">
             <h3>VALUE MAP (Bản đồ giá trị)</h3>
             <ul class="bullet-list">
-              <li>Products & Services (Sản phẩm/Dịch vụ): Nước ngọt có gas vị chanh tự nhiên Sprite. Lễ hội đường phố "Coca-Cola World" kết hợp ẩm thực và không gian cosplay/street style.</li>
-              <li>Pain Relievers (Giải pháp giảm đau): Hương chanh tự nhiên thanh mát giúp "cắt ngang" vị béo ngậy. Tạo ra một không gian văn hóa đường phố tôn trọng sự khác biệt để giới trẻ thoải mái bùng nổ.</li>
-              <li>Gain Creators (Tạo ra lợi ích): Trở thành "Palate Cleanser" hoàn hảo nhất. Tạo ra cú "bùng cháy" (Spark) năng lượng, khuyến khích Gen Z "Dress up Sparking" để ghi lại những khoảnh khắc rạng rỡ nhất của tuổi trẻ.</li>
+              <li>Pain Relievers: Hương chanh sảng khoái "cắt ngang" vị béo. Cung cấp không gian "Coca-Cola World" tại đô thị sạch sẽ để xóa bỏ rào cản e ngại.</li>
+              <li>Gain Creators: Thổi bùng (Spark) năng lượng tích cực, tôn vinh sự khác biệt để Gen Z tự tin "Dress up Sparking".</li>
             </ul>
           </article>
         </div>
@@ -218,47 +206,42 @@
         <h2 class="section-title reveal">TỪ INSIGHT ĐẾN Ý TƯỞNG: "LEM 'ON SPARK!"</h2>
         <div class="split reveal-group insight-row">
           <article class="glass-card reveal">
-            <h3>Core Insight</h3>
-            <p class="lead compact">Đúc kết từ mô hình 6W & CVP, Gen Z Việt Nam đam mê ẩm thực đường phố đậm vị (lẩu, nướng). Nhưng nỗi đau lớn nhất là trạng thái "Food Coma" - cảm giác no ngấy, đầy bụng làm gián đoạn cuộc vui xã hội. Hơn thế, họ luôn ủ ấp một mong muốn bùng nổ, một dịp cởi mở để được khoe cá tính.</p>
+            <h3>Sự thật ngầm hiểu (Core Insight)</h3>
+            <p class="lead compact">Đồ ăn vỉa hè ngon nhưng dầu mỡ làm Gen Z lờ đờ (Heavy Food = Heavy Mood). Họ cần một cú hích để rũ bỏ sự nặng nề, đánh thức bản ngã rực rỡ bên trong (Wibu/Cosplay).</p>
           </article>
           <article class="glass-card reveal">
-            <h3>Brand Role</h3>
-            <p class="lead compact">Ý TƯỞNG LỚN (BIG IDEA): LEM 'ON SPARK! - ĐÁNH THỨC HƯƠNG VỊ ĐƯỜNG PHỐ</p>
-            <p>Một ngụm Sprite lạnh buốt sẽ đóng vai trò như một "phép màu" (Magic Wand). Nó cắt ngang vị béo ngậy, thăng hoa hương vị món ăn và thổi bùng sự tự tin để giới trẻ sẵn sàng "Spark!" mọi lúc mọi nơi.</p>
+            <h3>Ý TƯỞNG LỚN (BIG IDEA)</h3>
+            <p class="lead compact">LEM 'ON SPARK! - ĐÁNH THỨC HƯƠNG VỊ, BỨT PHÁ BẢN NGÃ</p>
+            <p>The Ogilvy "Big Idea" Validation:</p>
+            <ul class="bullet-list">
+              <li>Brilliantly simple, simply brilliant: Một ngụm Sprite cắt ngang vị ngấy, chuyển hóa (Transition) người dùng để họ "Dress up Sparking".</li>
+              <li>Does it fit the strategy? Yes. Kêt nối mượt mà giữa tính năng "Cắt ngấy" (Functional) và yếu tố văn hóa "Bứt phá bản ngã" (Emotional).</li>
+            </ul>
           </article>
         </div>
-        <div class="converge-arrows reveal" aria-hidden="true">
-          <span class="arrow-left">↘</span>
-          <span class="arrow-right">↙</span>
-        </div>
-        <article class="glass-card reveal synthesis-box">
-          <h3>Synthesis</h3>
-          <p>Họ không chỉ cần một thức uống giải khát, họ cần một "cú hích" để F5 lại trạng thái. Sprite chính là giải pháp giao thoa hoàn hảo giữa việc "Thanh lọc vị giác" (Palate Cleanser) và sự cởi mở bùng nổ năng lượng (Energy Spark).</p>
-        </article>
       </section>
 
       <section id="slide-8" class="panel">
         <p class="section-index reveal">SLIDE 8</p>
-        <h2 class="section-title reveal">CUSTOMER JOURNEY & EXECUTION STRATEGY</h2>
-        <p class="lead reveal">Subtitle: TỔNG QUAN HÀNH TRÌNH 3 THÁNG: TỪ DIGITAL ĐẾN STREET FESTIVAL</p>
+        <h2 class="section-title reveal">HÀNH TRÌNH KHÁCH HÀNG (3-MONTH PULSING TIMELINE)</h2>
         <div class="journey-shell reveal" data-journey>
           <button class="journey-nav prev" type="button" aria-label="Giai đoạn trước">←</button>
           <div class="journey-window">
             <div class="journey-track">
               <article class="journey-phase is-active" data-phase="0">
                 <span>PHASE 1</span>
-                <h3>AWARENESS & VISIBILITY (Tháng 1 - Tháng 2)</h3>
-                <p>Đẩy mạnh chiến lược Micro-advertisements trên GDN (Google Ads) và các trang báo điện tử (Kenh14, Zing). Tối ưu hóa hiển thị (visibility) dựa trên các từ khóa tìm kiếm về sự kiện, văn hóa ẩm thực thành phố để "teasing", kích thích sự tò mò của giới trẻ về một lễ hội đường phố sắp diễn ra.</p>
+                <h3>AWARENESS (Tháng 1 - Tháng 2)</h3>
+                <p>Phủ Micro-advertisements trên báo điện tử, Google Ads nhắm mục tiêu từ khóa Wibu/Cosplay/Ẩm thực. Teasing về một sự kiện "Dress up Sparking" chấn động.</p>
               </article>
               <article class="journey-phase" data-phase="1">
                 <span>PHASE 2</span>
-                <h3>ENGAGEMENT & TICKET HYPE (Đầu Tháng 3)</h3>
-                <p>Chuyển đổi trên nền tảng số. Tung các "Combo Spark" giới hạn trên GrabFood/ShopeeFood. Khách hàng order combo ẩm thực vỉa hè + Sprite sẽ có cơ hội nhận vé ưu tiên trải nghiệm sự kiện chính và tham gia các thử thách AR Filter "Dress up Sparking" trên TikTok.</p>
+                <h3>CONSIDERATION (Đầu Tháng 3)</h3>
+                <p>Gọng kìm B2B - B2C. Tung "Combo Spark" trợ giá trên GrabFood/ShopeeFood (Tặng vé VIP sự kiện). TikTok bùng nổ trend biến hình AR Filter.</p>
               </article>
               <article class="journey-phase" data-phase="2">
                 <span>PHASE 3</span>
-                <h3>THE CLIMAX - "COCA-COLA WORLD" EVENT (3 Ngày cuối chiến dịch)</h3>
-                <p>Lập một "sân khấu dã chiến" cực chất tại Quận 1, TP.HCM (xin phép phong tỏa tuyến phố có kiểm soát vào giờ thấp điểm). Sự kiện quy tụ các nghệ sĩ Gen Z biểu diễn và mời các tiểu thương vỉa hè truyền thống trứ danh đến mở gian hàng. Đặc biệt, đây là lễ hội mở để Gen Z tự do "Dress up Sparking" – diện trang phục rực rỡ, cosplay bùng nổ cá tính. Khẳng định mạnh mẽ định vị: Coca-Cola World & Sprite chính là một phần linh hồn của ẩm thực đường phố Việt Nam.</p>
+                <h3>ADVOCACY & THE CLIMAX (3 Ngày cuối)</h3>
+                <p>Siêu sự kiện "Coca-Cola World" tại The Global City/Sala - "Nâng tầm Ẩm thực Đường phố Tân Thời". Gen Z tự do, an toàn diện đồ Cosplay bùng nổ cá tính.</p>
               </article>
             </div>
           </div>
@@ -269,23 +252,23 @@
           <button class="journey-dot" type="button" data-dot="1">2</button>
           <button class="journey-dot" type="button" data-dot="2">3</button>
         </div>
+        <figure class="event-visual reveal">
+          <img src="Street FooD event.png" alt="Coca-Cola World street food event visual" width="1920" height="1080" loading="lazy" decoding="async" />
+        </figure>
       </section>
 
       <section id="slide-9" class="panel">
         <p class="section-index reveal">SLIDE 9</p>
-        <h2 class="section-title reveal">PERSONAS</h2>
+        <h2 class="section-title reveal">PERSONAS: THE IDENTITY SHIFTER</h2>
         <div class="persona-layout reveal-group">
           <figure class="persona-photo reveal">
             <img src="Ha My.jpg" alt="Persona Ha My" width="4000" height="6000" loading="lazy" decoding="async" />
           </figure>
           <article class="glass-card reveal" data-no-prefix="1">
-            <h3>Persona Profile</h3>
-            <p><strong>Name:</strong> HÀ MY, Sinh viên Đại học / Age: 20 / Lifestyle: Ít khi la cà, thích sự an toàn (Introvert) và là một "Wibu" chính hiệu, luôn ủ ấp mong muốn được bùng nổ cá tính ngầm.</p>
-            <p><strong>Quote:</strong> "Bình thường mình khá lười ra ngoài, nhưng khi lướt báo thấy quảng cáo sự kiện Coca-Cola World phong tỏa hẳn một tuyến đường... đây đúng là cái cớ hoàn hảo để mình rũ bỏ sự rụt rè, 'Dress up Sparking' bùng nổ với bộ đồ cosplay yêu thích, vừa ăn vặt vỉa hè vừa tự tin khoe cá tính!"</p>
-            <p><strong>Digital Influencers:</strong> 80% Đọc tin tức sự kiện, đời sống trên Kenh14/Zing; 75% Bị thu hút bởi Micro-Ads (Google Ads) nhắm mục tiêu theo ngữ cảnh tin tức đang đọc.</p>
-            <p><strong>Key Data Metrics:</strong> 65% sinh viên có xu hướng bị thuyết phục bước ra khỏi nhà bởi các sự kiện "All-in-one" (Ăn uống + Giải trí + Trải nghiệm văn hóa) được tổ chức bởi các thương hiệu lớn.</p>
-            <p><strong>Motivations:</strong> Vô tình tiếp cận thông tin qua quảng cáo hiển thị khi đang đọc tin tức. Tìm kiếm một lễ hội cởi mở, an toàn để rủ hội bạn thân cùng "lên đồ" rạng rỡ và tận hưởng ẩm thực đường phố.</p>
-            <p><strong>Core Needs:</strong> Cần một lý do đủ lớn để bước ra khỏi "vùng an toàn". Cần một không gian tôn trọng sự khác biệt để tự tin "Spark!", cùng một lon Sprite thanh mát để giải quyết cảm giác đầy hơi khi ăn đa dạng các món vỉa hè tại sự kiện.</p>
+            <p><strong>Name:</strong> HÀ MY, Sinh viên Đại học / Age: 20</p>
+            <p><strong>Lifestyle:</strong> Khá khép kín (Introvert) ban ngày, nhưng là một "Wibu" ngầm đam mê Cosplay.</p>
+            <p><strong>The Journey:</strong> Thấy quảng cáo (Micro-Ads) khi đọc tin tức thành phố -> Tìm hiểu sự kiện -> Rủ bạn order Combo GrabFood lấy vé VIP.</p>
+            <p><strong>Quote:</strong> "Bình thường mình rất lười ra vỉa hè vì sợ ồn ào. Nhưng thấy Coca-Cola World ở Sala sạch sẽ... đây là không gian an toàn hoàn hảo để mình rũ bỏ sự rụt rè, 'Dress up Sparking' bùng nổ với bộ đồ cosplay yêu thích!"</p>
           </article>
         </div>
       </section>
@@ -294,133 +277,240 @@
         <p class="section-index reveal">SLIDE 10</p>
         <h2 class="section-title reveal">3C MARKETING STRATEGY</h2>
         <div class="pillars-grid reveal-group">
-          <article class="pillar reveal"><h3>Customer (Khách hàng)</h3><p>Tìm kiếm trải nghiệm ẩm thực đường phố được "nâng tầm": một không gian an toàn, cởi mở, nơi họ có thể vừa thưởng thức món ngon vừa tự tin thể hiện cá tính ngầm (Dress up Sparking).</p></article>
-          <article class="pillar reveal"><h3>Company (Sprite / Coca-Cola)</h3><p>Nâng tầm uy tín (brand trust) thông qua năng lực tổ chức một sự kiện đường phố quy mô lớn, an toàn và sạch sẽ. Khẳng định vị thế là người bảo trợ vững chắc cho văn hóa đường phố Việt Nam.</p></article>
-          <article class="pillar reveal"><h3>Competitors (Đối thủ - 7Up)</h3><p>Có đủ tiềm lực tài chính để tổ chức các sự kiện tương tự. Tuy nhiên, điểm yếu của họ là chưa xây dựng được sợi dây liên kết cảm xúc sâu sắc với các "tiểu văn hóa" của giới trẻ (như Wibu/Cosplay).</p></article>
+          <article class="pillar reveal"><h3>Customer</h3><p>Khao khát ăn đồ vỉa hè nhưng đòi hỏi không gian văn minh (Sala) để tự do bộc lộ cá tính ngầm (Dress up Sparking).</p></article>
+          <article class="pillar reveal"><h3>Company (Sprite)</h3><p>Nâng uy tín thương hiệu bằng cách đóng vai trò là người bảo trợ, làm sạch và văn minh hóa văn hóa đường phố Việt Nam.</p></article>
+          <article class="pillar reveal"><h3>Competitors (7Up)</h3><p>Có tiền làm event, nhưng quá an toàn và chưa liên kết được với tiểu văn hóa Gen Z.</p></article>
         </div>
-        <p class="lead reveal">Cơ hội chiến lược (Strategic Intersection): Lợi thế của người tiên phong (First-Mover Advantage). Đối thủ có thể sao chép event, nhưng Sprite sẽ là thương hiệu làm điều này đầu tiên. Kẻ đi trước sẽ thiết lập tiêu chuẩn trong tâm trí khách hàng, tạo ra một di sản truyền thông (marketing stand) độc tôn và không thể sao chép.</p>
+        <p class="lead reveal">Strategic Intersection: Lợi thế người tiên phong (First-Mover Advantage). Kẻ đi trước thiết lập tiêu chuẩn sẽ chiếm giữ "Marketing Stand" độc tôn.</p>
       </section>
 
       <section id="slide-11" class="panel">
         <p class="section-index reveal">SLIDE 11</p>
-        <h2 class="section-title reveal">CHIẾN LƯỢC LAN TỎA KÉP: B2C & B2B (AMPLIFICATION STRATEGY)</h2>
+        <h2 class="section-title reveal">HỆ SINH THÁI VIRAL B2C & BÀI TOÁN ÉP CUNG B2B</h2>
         <div class="split reveal-group">
           <article class="glass-card reveal">
-            <h3>B2C: Tự Viral & Đu Trend (Người Tiêu Dùng)</h3>
+            <h3>B2C (Mồi lửa Truyền thông)</h3>
             <ul class="bullet-list">
-              <li>Thiết kế sự kiện "Coca-Cola World" ngập tràn góc check-in đường phố độc lạ và các trạm "Dress up Sparking", tạo ra hiệu ứng FOMO mạnh mẽ.</li>
-              <li>Thu hút các Food Reviewer, TikToker ẩm thực tự nguyện đến quay vlog, "đu trend" rạng rỡ mà không cần trả phí booking (Earned Media), kích hoạt hàng ngàn nội dung do người dùng tạo ra (UGC - User Generated Content) lan truyền tự nhiên.</li>
+              <li>Báo chí đưa tin về sứ mệnh "Nâng tầm ẩm thực".</li>
+              <li>Hàng loạt Paid KOCs/KOLs đổ bộ vỉa hè quay video "Dress up Sparking" tạo bão FOMO.</li>
+              <li>Cam kết "Sprite Always Supports": ưu tiên ngân sách hỗ trợ sáng tạo cho Food Reviewers, KOL/KOC và các Live Food Truck để họ duy trì nội dung và hoạt động ổn định, bền vững.</li>
             </ul>
           </article>
           <article class="glass-card reveal">
-            <h3>B2B: Bảo Trợ Văn Hóa & Báo Chí (Tiểu Thương & Đối Tác)</h3>
+            <h3>B2B (Thế gọng kìm "Ép Cung")</h3>
             <ul class="bullet-list">
-              <li>Tổ chức một sự kiện vỉa hè văn minh, sạch sẽ và an toàn là câu chuyện tuyệt vời về Trách nhiệm Xã hội (CSR) và Tôn vinh văn hóa.</li>
-              <li>Thu hút các báo đài truyền thông đại chúng uy tín (Tuổi Trẻ, Thanh Niên, Báo Thành Phố) tự động đưa tin biểu dương.</li>
-              <li>Uy tín này là "vũ khí" B2B đắc lực, giúp đội ngũ Sales Sprite dễ dàng thuyết phục các tiểu thương, chủ xe đẩy, quán ăn đường phố ký hợp đồng nhập hàng dài hạn và ưu tiên trưng bày POSM sau khi chiến dịch kết thúc.</li>
+              <li>Sức ép từ App (Pull Strategy): Tung Combo GrabFood siêu rẻ. Các chủ xe đẩy bắt buộc phải nhập Sprite để đáp ứng lượng đơn online khổng lồ từ Gen Z.</li>
+              <li>Chuyển đổi thói quen Vendor: Khi đã nhập hàng, đội ngũ Sales ập tới tài trợ bạt, dù, biển hiệu mang màu Xanh-Vàng của Sprite & Lọ Lem, hất cẳng 7Up khỏi tầm nhìn tại điểm bán.</li>
             </ul>
           </article>
         </div>
+        <article class="support-pledge reveal">
+          <h3>SPRITE CREATOR & FOOD TRUCK PLEDGE</h3>
+          <p>Sprite duy trì tinh thần bao dung và hào phóng với cộng đồng sáng tạo ẩm thực: luôn có cơ chế hỗ trợ cho Food Reviewers, KOL/KOC và các Live Food Truck thông qua tài trợ nội dung, POSM và hỗ trợ hiện trường trong các chiến dịch trọng điểm.</p>
+        </article>
       </section>
 
       <section id="slide-12" class="panel">
         <p class="section-index reveal">SLIDE 12</p>
-        <h2 class="section-title reveal">SWOT SYNTHESIS: CHIẾN LƯỢC TỔNG LỰC</h2>
-        <div class="pillars-grid reveal-group">
-          <article class="pillar reveal"><h3>STRENGTHS (Điểm mạnh - Nội tại)</h3><p>Brand equity vững chắc, nhận diện thương hiệu "Lát chanh vàng" iconic. Năng lực chuỗi cung ứng toàn cầu đảm bảo giá cạnh tranh (Price Competitiveness). Khả năng tổ chức các hoạt động trải nghiệm quy mô lớn, chuyên nghiệp.</p></article>
-          <article class="pillar reveal"><h3>WEAKNESSES (Điểm yếu - Nội tại)</h3><p>Lo ngại về ga và lượng đường (cần truyền thông khéo léo). Chi phí vận hành sự kiện lớn (Event Logistics), rủi ro cao về thời tiết hoặc quá tải nếu quản lý địa điểm không tốt.</p></article>
-          <article class="pillar reveal"><h3>OPPORTUNITIES (Cơ hội - Ngoại cảnh)</h3><p>Văn hóa ẩm thực đường phố bùng nổ. Sự chuyển dịch sang các khu đô thị vệ tinh hiện đại (The Global City, Sala) giúp kiểm soát không gian, tăng tính an toàn và trải nghiệm "Spark!" tốt hơn. Tích hợp combo số hóa (GrabFood/ShopeeFood).</p></article>
-          <article class="pillar reveal"><h3>THREATS (Thách thức - Ngoại cảnh)</h3><p>Thuế đường (Sugar Tax) gây áp lực lên giá thành. Đối thủ 7Up liên tục phản ứng bằng các campaign tương tự. Thay đổi hành vi khách hàng sang các thức uống "Healthy" (Trà tươi, Kombucha).</p></article>
+        <h2 class="section-title reveal">SWOT SYNTHESIS (DỰA TRÊN PORTER'S 5 FORCES)</h2>
+        <div class="swot-graph reveal-group">
+          <article class="swot-cell reveal swot-strengths">
+            <h3>STRENGTHS</h3>
+            <ul class="bullet-list">
+              <li>Khả năng tích hợp hệ sinh thái Digital xuống Offline.</li>
+              <li>Năng lực tài chính khủng để thâu tóm POSM vỉa hè.</li>
+            </ul>
+          </article>
+          <article class="swot-cell reveal swot-weaknesses">
+            <h3>WEAKNESSES</h3>
+            <ul class="bullet-list">
+              <li>Hương vị ngọt gắt hơn 7Up khi ăn kèm đồ nhiều dầu mỡ (nếu uống không đá).</li>
+            </ul>
+          </article>
+          <article class="swot-cell reveal swot-opportunities">
+            <h3>OPPORTUNITIES</h3>
+            <ul class="bullet-list">
+              <li>Việc tổ chức tại khu đô thị mới (Sala/Global City) giải quyết rủi ro an ninh.</li>
+              <li>Thuận lợi xin phép chính quyền, mang lại không gian "Nâng tầm đường phố" an toàn cho Gen Z.</li>
+            </ul>
+          </article>
+          <article class="swot-cell reveal swot-threats">
+            <h3>THREATS</h3>
+            <ul class="bullet-list">
+              <li>7Up thống trị tuyệt đối tại vỉa hè.</li>
+              <li>Rủi ro thời tiết khi làm event ngoài trời.</li>
+            </ul>
+          </article>
         </div>
       </section>
 
       <section id="slide-13" class="panel">
         <p class="section-index reveal">SLIDE 13</p>
-        <h2 class="section-title reveal">EXECUTIVE CAMPAIGN SUMMARY</h2>
+        <h2 class="section-title reveal">ADVERTISEMENT CAMPAIGN SUMMARY</h2>
         <div class="glass-card reveal">
-          <p><strong>BRAND STATUS:</strong> Sprite is a leading beverage brand. In 2026, Sprite aims to become the ultimate lifestyle companion for Gen-Z street food culture.</p>
-          <p><strong>OBJECTIVE:</strong> Business: Increase sales via food app combos and on-site activations. Marketing: Strengthen brand awareness as a palate cleanser. Communication: Connect the "refreshing" functional value with the emotional "spark" of street culture.</p>
-          <p><strong>INSIGHTS:</strong> Gen Z doesn't just want a drink; they want a "rescue" from post-meal lethargy (food coma) to keep their social energy alive.</p>
-          <p><strong>BIG IDEA:</strong> LEM 'ON SPARK! - Transforming the heavy food slump into instant refreshment.</p>
-          <p><strong>TARGET AUDIENCE:</strong> Age: 18-27. Digital-native, trend-sensitive, including both street food lovers and introverted youths looking for safe, curated experiences to "dress up sparking".</p>
-          <p><strong>KEY MESSAGE:</strong> ĐÁNH THỨC GIÁC QUAN, THĂNG HOA HƯƠNG VỊ (It's That Fresh)</p>
-          <p><strong>PHASE 1 (AWARENESS):</strong> Micro-ads on news sites driving curiosity.</p>
-          <p><strong>PHASE 2 (ENGAGEMENT):</strong> Food App Combos & VIP Ticket hunt.</p>
-          <p><strong>PHASE 3 (AMPLIFICATION):</strong> The Climax - 3-day Coca-Cola World Street Festival in District 1.</p>
+          <p><strong>OBJECTIVE:</strong> Break 7Up's street monopoly via App combos. Elevate street culture and connect functional refreshment with Gen Z identity shifting.</p>
+          <p><strong>BIG IDEA:</strong> LEM 'ON SPARK! - Thanh lọc vị giác, bứt phá bản ngã.</p>
+          <p><strong>BRAND AMBASSADOR:</strong> LỌ LEM (Mai Thảo Linh).</p>
+          <p>Hình tượng trong trẻo, tự nhiên cực khớp với Sprite. "Lọ Lem chọn Lem 'On Spark!". Dành riêng cho bảng quảng cáo OOH (Billboard) để tạo độ phủ đại chúng (Mass Awareness) với chi phí tối ưu.</p>
+          <p><strong>TONE OF VOICE (TOV):</strong> BOLD - REFRESHING - UNAPOLOGETIC (Táo bạo - Sảng khoái - Không e dè).</p>
         </div>
       </section>
 
       <section id="slide-14" class="panel">
         <p class="section-index reveal">SLIDE 14</p>
         <h2 class="section-title reveal">CAMPAIGN BUDGET ESTIMATION</h2>
-        <p class="lead reveal">TOTAL CAMPAIGN BUDGET: 10,000,000,000 VND (100%)</p>
-        <div class="glass-card reveal">
-          <h3>BUDGET ALLOCATIONS (VND) Table</h3>
-          <table class="data-table">
-            <thead><tr><th>Hạng mục</th><th>Ngân sách</th><th>Tỷ trọng</th><th>Kênh</th></tr></thead>
-            <tbody>
-              <tr><td>Phase 1 (Awareness & Visibility): Micro-ads, PR Articles, Google GDN keywords targeting city events and news readers.</td><td>2,000,000,000</td><td>20%</td><td>Google Ads, News Sites, Display Network.</td></tr>
-              <tr><td>Phase 2 (Engagement & Ticket Hype): Maximizing food app combo sales and event ticket distributions.</td><td>3,000,000,000</td><td>30%</td><td>GrabFood/ShopeeFood Promos, Trade Marketing.</td></tr>
-              <tr><td>Phase 3 (Coca-Cola World Event): The climax. Setup for D1 pop-up stage, artists, vendor sponsorships, permits, livestreams.</td><td>4,000,000,000</td><td>40%</td><td>Event Production, Talent Fees, Permits, PR Amplification.</td></tr>
-              <tr><td>Others: Content production, logistics, contingency.</td><td>1,000,000,000</td><td>10%</td><td>Tools, Misc, Contingency.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="chart-card reveal chart-animate" id="budget-breakdown">
-          <h3>BUDGET BREAKDOWN BY CHANNEL</h3>
-          <div class="mix-chart">
-            <div class="mix-row"><div class="mix-label"><span>Event Production & Permits (D1 Setup)</span><strong>3,500,000,000</strong></div><div class="mix-track"><span class="mix-fill" data-bar="100"></span></div></div>
-            <div class="mix-row"><div class="mix-label"><span>Trade Marketing & Delivery Apps</span><strong>2,500,000,000</strong></div><div class="mix-track"><span class="mix-fill" data-bar="71"></span></div></div>
-            <div class="mix-row"><div class="mix-label"><span>Google Ads & PR Articles</span><strong>1,500,000,000</strong></div><div class="mix-track"><span class="mix-fill" data-bar="43"></span></div></div>
-            <div class="mix-row"><div class="mix-label"><span>Talent Fees & Performers</span><strong>1,000,000,000</strong></div><div class="mix-track"><span class="mix-fill" data-bar="29"></span></div></div>
-            <div class="mix-row"><div class="mix-label"><span>Digital Amplification (Social/Livestreams)</span><strong>1,000,000,000</strong></div><div class="mix-track"><span class="mix-fill" data-bar="29"></span></div></div>
-            <div class="mix-row"><div class="mix-label"><span>Others (Logistics, Misc)</span><strong>500,000,000</strong></div><div class="mix-track"><span class="mix-fill" data-bar="14"></span></div></div>
+        <p class="lead reveal">TỔNG NGÂN SÁCH (TOTAL BUDGET): 10 BILLION VND</p>
+        <div class="split reveal-group">
+          <article class="glass-card reveal chart-animate" id="budget-breakdown">
+            <h3>Donut Chart Budget Table</h3>
+            <canvas id="budget-breakdown-canvas" class="viz-patch-canvas" aria-label="Budget breakdown donut chart"></canvas>
+            <table class="data-table">
+              <thead>
+                <tr><th>Hạng mục chi tiêu</th><th>Tỷ lệ (%)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Experiential (Sự kiện HCM)</td><td>35%</td></tr>
+                <tr><td>Trade & Food Apps (B2B)</td><td>25%</td></tr>
+                <tr><td>KOLs/KOCs & Ambassador</td><td>20%</td></tr>
+                <tr><td>Media & PR</td><td>15%</td></tr>
+                <tr><td>Others/Contingency</td><td>5%</td></tr>
+              </tbody>
+            </table>
+          </article>
+          <div class="pillars-grid reveal-group">
+            <article class="pillar reveal"><h3>35% - EXPERIENTIAL MARKETING</h3><p>Trải nghiệm khách hàng cốt lõi. Chi phí bùng nổ cho 3 ngày "Coca-Cola World" tại Sala/Global City.</p></article>
+            <article class="pillar reveal"><h3>25% - TRADE MARKETING & FOOD APPS</h3><p>Vũ khí B2B. Trợ giá Combo GrabFood, tài trợ dù bạt POSM ép vendors nhập hàng.</p></article>
+            <article class="pillar reveal"><h3>20% - KOLs/KOCs & BRAND AMBASSADOR</h3><p>Mũi nhọn bứt phá. Paid KOLs tạo bão TikTok "Dress up Sparking" và thù lao cho Đại sứ Lọ Lem trên Billboard OOH.</p></article>
+            <article class="pillar reveal"><h3>15% - DIGITAL PAID MEDIA</h3><p>Google GDN, Bumper Ads, PR báo chí.</p></article>
           </div>
         </div>
       </section>
 
       <section id="slide-15" class="panel">
         <p class="section-index reveal">SLIDE 15</p>
-        <h2 class="section-title reveal">METRICS & KEY SUCCESS INDICATORS</h2>
+        <h2 class="section-title reveal">METRICS & KEY SUCCESS INDICATORS (KPIs)</h2>
+        <article class="glass-card reveal">
+          <h3>HERO STATS</h3>
+          <p>TOTAL REACH: 20M+</p>
+          <p>EVENT PAX: 15,000+</p>
+          <p>ROAS: 3.0+</p>
+        </article>
         <div class="glass-card reveal">
-          <h3>METRICS & KPIs OVERVIEW Table</h3>
+          <h3>[FUNNEL LEVEL 1] AWARENESS</h3>
           <table class="data-table">
             <tbody>
-              <tr><td>01 AWARENESS & VISIBILITY</td><td>Reach: 15M+ | Display Impressions: 25M+ | PR Article Views: 2M+</td></tr>
-              <tr><td>02 ENGAGEMENT & TICKET HYPE</td><td>App Traffic: 1M+ | Combo Sales: 150K+ | Event Tickets Claimed: 10,000+</td></tr>
-              <tr><td>03 COCA-COLA WORLD EVENT (OFFLINE & ONLINE)</td><td>Offline Attendees: 15K+ | Livestream Views: 5M+ | UGC Content & Check-ins: 20,000+</td></tr>
+              <tr><td>Reach</td><td>15 Triệu người</td></tr>
+              <tr><td>Display Impressions</td><td>25 Triệu</td></tr>
+              <tr><td>Lượt xem bài PR</td><td>2 Triệu+</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="glass-card reveal">
+          <h3>[FUNNEL LEVEL 2] CONSIDERATION (Kích Sale)</h3>
+          <table class="data-table">
+            <tbody>
+              <tr><td>Lượt truy cập Food App</td><td>1 Triệu+</td></tr>
+              <tr><td>Bán ra (Combo Sales)</td><td>150.000+ lượt</td></tr>
+              <tr><td>KOC Viral Videos</td><td>500+ Clips</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="glass-card reveal">
+          <h3>[FUNNEL LEVEL 3] ADVOCACY (Sự kiện & Lan tỏa)</h3>
+          <table class="data-table">
+            <tbody>
+              <tr><td>Tham gia Offline (Sala)</td><td>15.000+ người</td></tr>
+              <tr><td>UGC Content (Dress up Sparking)</td><td>20.000+ bài post</td></tr>
             </tbody>
           </table>
         </div>
         <div class="stats reveal-group">
           <article class="stat reveal"><p class="counter" data-target="20000000" data-suffix="+">0</p><h3>TOTAL REACH</h3><p>people</p></article>
-          <article class="stat reveal"><p class="counter" data-target="15000" data-suffix="+">0</p><h3>EVENT ATTENDEES</h3><p>pax</p></article>
-          <article class="stat reveal"><p class="counter" data-target="150000" data-suffix="+">0</p><h3>COMBO CONVERSIONS</h3><p>units</p></article>
-          <article class="stat reveal"><p class="counter" data-target="35" data-suffix="M+">0</p><h3>IMPRESSIONS</h3><p>impressions</p></article>
-          <article class="stat reveal"><p class="counter" data-target="30" data-suffix="%">0</p><h3>EARNED MEDIA VALUE</h3><p>ROI</p></article>
-          <article class="stat reveal"><p class="counter" data-target="20000" data-suffix="+">0</p><h3>UGC (Check-ins/Hashtags)</h3><p>posts</p></article>
+          <article class="stat reveal"><p class="counter" data-target="15000" data-suffix="+">0</p><h3>EVENT PAX</h3><p>people</p></article>
+          <article class="stat reveal"><p class="counter" data-target="3" data-suffix=".0+">0</p><h3>ROAS</h3><p>ratio</p></article>
+          <article class="stat reveal"><p class="counter" data-target="150000" data-suffix="+">0</p><h3>COMBO SALES</h3><p>orders</p></article>
+          <article class="stat reveal"><p class="counter" data-target="500" data-suffix="+">0</p><h3>KOC VIDEOS</h3><p>clips</p></article>
+          <article class="stat reveal"><p class="counter" data-target="20000" data-suffix="+">0</p><h3>UGC POSTS</h3><p>posts</p></article>
         </div>
       </section>
 
-      <section id="slide-16" class="panel contact">
+      <section id="slide-16" class="panel">
         <p class="section-index reveal">SLIDE 16</p>
-        <h2 class="section-title reveal">THANK YOU</h2>
-        <p class="lead reveal">"Đánh thức giác quan, thăng hoa hương vị"</p>
-        <p class="lead reveal">Sprite "Lem 'On Spark!" Campaign | Vietnam Market</p>
-        <p class="lead reveal">contact@sprite-vietnam.com</p>
-        <div class="contact-box reveal">
-          <p>Sprite Vietnam | Coca-Cola Vietnam Beverages Ltd.</p>
+        <h2 class="section-title reveal">CREATIVE STRATEGY: CONTEXT IS GOD</h2>
+        <p class="lead reveal">THINK-FEEL-DO: (THINK) Sprite cắt đứt vị ngấy -> (FEEL) An toàn để bộc lộ bản ngã -> (DO) Đặt Combo App, Quay TikTok, Săn vé Event.</p>
+        <p class="lead reveal">PLATFORM ECOSYSTEM:</p>
+        <div class="pillars-grid reveal-group">
+          <article class="pillar reveal"><h3>CỘT 1: YouTube (Pastime Context)</h3><p>Bumper ads 6s. Âm thanh ASMR bọt ga xì xèo cắt ngang tiếng xèo xèo thịt nướng. Đánh vào nhu cầu giải trí, thư giãn nhanh (Think).</p></article>
+          <article class="pillar reveal"><h3>CỘT 2: TikTok / Reels (Identity Context)</h3><p>Nơi KOCs khởi tạo trào lưu biến hình AR Filter "Spark Your Style". Từ sinh viên xuề xòa thành Cosplayer lộng lẫy (Feel & Do).</p></article>
+          <article class="pillar reveal"><h3>CỘT 3: Out-of-Home (Trust Context)</h3><p>Billboard khổng lồ với Đại sứ Lọ Lem: "Lọ Lem chọn Lem 'On Spark!". Khẳng định đẳng cấp, uy tín tại các nút giao thông lớn.</p></article>
         </div>
-        <figure class="closing-video reveal">
-          <video controls preload="none" playsinline muted>
-            <source src="closing-video-web.mp4" type="video/mp4" />
-            Trình duyệt không hỗ trợ video MP4.
-          </video>
-          <p class="video-fallback">Nếu video không phát, mở trực tiếp: <a href="closing-video-web.mp4" target="_blank" rel="noopener">Xem file MP4</a>.</p>
-        </figure>
+        <article class="glass-card reveal unit-econ-card">
+          <h3>EVENT UNIT ECONOMICS (CONSERVATIVE)</h3>
+          <p class="econ-badge">EXECUTIVE SNAPSHOT</p>
+          <div class="snapshot-layout">
+            <div class="unit-econ-grid">
+              <div class="unit-econ-metric">
+                <p class="unit-econ-label">Chi phí đầu tư / 1 Event Participation</p>
+                <p class="unit-econ-value">~233.000 VNĐ/người</p>
+                <p class="unit-econ-note">Tính theo ngân sách Experiential 3,5 tỷ VNĐ / 15.000 người tham gia.</p>
+                <p class="unit-econ-formula">Formula: 3.500.000.000 / 15.000 = 233.333 VNĐ/người</p>
+              </div>
+              <div class="unit-econ-metric">
+                <p class="unit-econ-label">Giá trị tiềm năng mang lại / 1 người</p>
+                <p class="unit-econ-value">~180.000 VNĐ/người</p>
+                <p class="unit-econ-note">Ước tính bảo thủ theo giá trị giữ chân và tăng tần suất mua trong 12 tháng cho nhóm đã là khách hàng của Sprite.</p>
+                <p class="unit-econ-formula">Formula: 15.000 khách x 180.000 VNĐ = 2,7 tỷ VNĐ giá trị tiềm năng</p>
+              </div>
+            </div>
+            <aside class="decision-card">
+              <h4>Decision View</h4>
+              <p>ROI ngắn hạn có thể thấp (~0,77x), nhưng đây là khoản đầu tư giữ chân khách hàng cốt lõi.</p>
+              <ul class="bullet-list">
+                <li>Khóa khách hàng hiện hữu vào hệ sinh thái Sprite.</li>
+                <li>Tăng tần suất mua lại qua Food Apps và điểm bán.</li>
+                <li>Nâng LTV cho các mùa campaign tiếp theo.</li>
+              </ul>
+            </aside>
+          </div>
+          <p class="decision-line">Decision line: ROI ngắn hạn có thể thấp, nhưng mỗi người tham gia event đã là một khách hàng thật và có giá trị duy trì dài hạn cho Sprite.</p>
+        </article>
+        <article class="glass-card reveal">
+          <h3>DEMO KOC VIDEO REVIEW</h3>
+          <figure class="koc-video-demo">
+            <video controls preload="none" playsinline muted>
+              <source src="1783967645961_2237398150629651189_2237398150629651189.mp4" type="video/mp4" />
+              Trình duyệt không hỗ trợ video MP4.
+            </video>
+            <p class="video-fallback">Nếu video không phát, mở trực tiếp: <a href="1783967645961_2237398150629651189_2237398150629651189.mp4" target="_blank" rel="noopener">Xem file MP4</a>.</p>
+          </figure>
+        </article>
+      </section>
+
+      <section id="slide-17" class="panel">
+        <p class="section-index reveal">SLIDE 17</p>
+        <h2 class="section-title reveal">MEDIA MIX & SCHEDULING (PULSING)</h2>
+        <p class="lead reveal">Chiến lược Đánh úp (Pulsing): Duy trì nền tảng liên tục, nhưng dồn hỏa lực vào Tháng 3 qua KOCs và Food Apps để ép Sales và kích FOMO trước sự kiện.</p>
+        <article class="glass-card reveal">
+          <h3>O-E-P FRAMEWORK</h3>
+          <ul class="bullet-list">
+            <li>PAID (Vũ khí chủ lực): KOCs TikTok, Trợ giá Combo GrabFood, Billboard Lọ Lem.</li>
+            <li>OWNED (Chiếm lĩnh điểm bán): Tấn công vật lý bằng POSM Sprite tại 100k+ xe đẩy vỉa hè.</li>
+            <li>EARNED (Bão truyền thông): UGC từ Gen Z "Dress up Sparking" và Báo đài ca ngợi việc nâng tầm ẩm thực đường phố.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="slide-18" class="panel contact">
+        <p class="section-index reveal">SLIDE 18</p>
+        <h2 class="section-title reveal">THANK YOU</h2>
+        <p class="lead reveal">"Đánh thức giác quan, bứt phá bản ngã"</p>
+        <p class="lead reveal">Sprite "Lem 'On Spark!" Campaign | Vietnam Market 2026</p>
+        <p class="lead reveal">contact@sprite-vietnam.com</p>
       </section>
     </main>
 
+    <script src="vendor/chart.umd.min.js"></script>
     <script src="script.js"></script>
+    <script src="patch-viz.js"></script>
   </body>
 </html>

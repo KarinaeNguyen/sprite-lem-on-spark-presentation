@@ -1,5 +1,8 @@
 const sections = [...document.querySelectorAll("main .panel")];
 const navDots = [...document.querySelectorAll(".scroll-nav .nav-dot")];
+const sectionProgressLinks = [...document.querySelectorAll(".section-progress .progress-link")];
+const navLinks = [...navDots, ...sectionProgressLinks];
+const progressFill = document.querySelector("#progress-fill");
 const revealItems = [...document.querySelectorAll(".reveal")];
 const timeline = document.querySelector(".timeline");
 const chartBlocks = [...document.querySelectorAll(".chart-animate")];
@@ -136,9 +139,35 @@ if (canAnimateCursor) {
 }
 
 const setActiveNav = (id) => {
-  navDots.forEach((dot) => {
+  navLinks.forEach((dot) => {
     dot.classList.toggle("is-active", dot.getAttribute("href") === `#${id}`);
   });
+};
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    const targetId = link.getAttribute("href")?.replace("#", "");
+    if (targetId) {
+      setActiveNav(targetId);
+    }
+  });
+});
+
+const updateProgressFill = () => {
+  if (!progressFill) {
+    return;
+  }
+
+  const scrollTop = window.scrollY || window.pageYOffset;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+  if (maxScroll <= 0) {
+    progressFill.style.height = "0%";
+    return;
+  }
+
+  const ratio = Math.min(Math.max(scrollTop / maxScroll, 0), 1);
+  progressFill.style.height = `${(ratio * 100).toFixed(2)}%`;
 };
 
 const sectionObserver = new IntersectionObserver(
@@ -155,6 +184,22 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
+
+window.addEventListener("scroll", updateProgressFill, { passive: true });
+window.addEventListener("resize", updateProgressFill);
+window.addEventListener("hashchange", () => {
+  const hashId = window.location.hash.replace("#", "");
+  if (hashId) {
+    setActiveNav(hashId);
+  }
+});
+
+updateProgressFill();
+
+const initialHashId = window.location.hash.replace("#", "");
+if (initialHashId) {
+  setActiveNav(initialHashId);
+}
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
