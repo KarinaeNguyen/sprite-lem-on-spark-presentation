@@ -156,7 +156,7 @@
             },
             title: {
               display: true,
-              text: "Lượng Đường",
+              text: "Sweetness",
               color: "#e4ffe8",
             },
           },
@@ -171,7 +171,7 @@
             },
             title: {
               display: true,
-              text: "Cảm nhận hương vị",
+              text: "Flavor Perception",
               color: "#e4ffe8",
             },
           },
