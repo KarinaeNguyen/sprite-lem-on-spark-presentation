@@ -1,8 +1,7 @@
 const sections = [...document.querySelectorAll("main .panel")];
-const navDots = [...document.querySelectorAll(".scroll-nav .nav-dot")];
 const sectionProgressLinks = [...document.querySelectorAll(".section-progress .progress-link")];
 const mobileProgressLinks = [...document.querySelectorAll(".mobile-progress-link")];
-const navLinks = [...navDots, ...sectionProgressLinks, ...mobileProgressLinks];
+const navLinks = [...sectionProgressLinks, ...mobileProgressLinks];
 const progressFill = document.querySelector("#progress-fill");
 const mobileProgressToggle = document.querySelector(".mobile-progress-toggle");
 const mobileProgressMenu = document.querySelector("#mobile-progress-menu");
